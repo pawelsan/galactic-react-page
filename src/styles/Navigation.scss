@@ -1,4 +1,9 @@
 .menu-main {
+    position: fixed;
+    top: 10vh;
+    left: 0;
+    width: 100%;
+    background-color: blue;
     display: flex;
     list-style-type: none;
     
