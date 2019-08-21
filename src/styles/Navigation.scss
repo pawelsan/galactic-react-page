@@ -1,0 +1,44 @@
+.menu-main {
+    display: flex;
+    list-style-type: none;
+    
+}
+
+.menu-main__item {
+    flex-grow: 1;
+}
+
+.menu-main__link {
+    display: block;
+    padding: 15px 25px;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    background-color: #aaa;
+    color: #fff;
+    border-bottom: 5px solid black;
+    transition: .2s
+}
+
+.menu-main__link:hover {
+    color: yellow;
+    transform: translateY(5px);
+    cursor: pointer;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
+
+
+.menu-main__link--active {
+
+    border-bottom-color: yellow;
+    transition: .2s
+}
+
+.menu-main__link--active:hover {
+    transform: translateY(0px);
+    border-left: none;
+    border-right: none
+}

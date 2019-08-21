@@ -1,0 +1,84 @@
+@import 'Variables.scss';
+
+
+.moon {
+    
+    width: 100%;
+}
+
+.moon-nest {
+    position: fixed;
+    width: 20vw;
+    z-index: -1;
+    opacity: 0.9;
+    transition: 5s;
+    
+    
+}
+
+.moon-nest:nth-child(1) {
+    left: 20%;
+    top: 0%;
+    & .moon {
+    animation:spin 30s ease infinite;
+    }
+}
+
+.moon-nest:nth-child(2) {
+    left: 10%;
+    top: 60%;
+    & .moon {
+        animation:spin 45s linear infinite;
+        animation-direction:reverse
+        }
+}
+
+.moon-nest:nth-child(3) {
+    left: 90%;
+    top: 30%;
+    & .moon {
+        animation:spin 15s linear infinite;
+        }
+}
+
+@keyframes spin {
+    from {
+        transform-origin: left;
+        transform: rotate(0deg);
+    }
+    to {
+        transform-origin: center;
+        transform: rotate(359deg);
+    }
+}
+
+.app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 90%;
+    margin: 0 auto;
+    color: $primary-color;
+}
+.app-header {
+    flex-basis: 30vh;
+}
+
+.app-main {
+    flex-grow: 1;
+    padding: 30px 0;
+}
+
+.app-footer {
+    background-color: #000;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+    text-transform: uppercase
+}
+
+/* 
+section {
+    padding-top: 30px;
+    text-align: center
+} */
