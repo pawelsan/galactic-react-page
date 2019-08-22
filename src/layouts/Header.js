@@ -1,7 +1,10 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import header1 from '../images/galaxy_1280.jpg';
+import logo from '../images/logo.png'
+import header1 from '../images/swamp.jpg';
 import header2 from '../images/murky.jpg';
+import header3 from '../images/cityscape.jpg';
+import header4 from "../images/volcano.jpg"
 import '../styles/Header.scss'
 
 const Header = () => {
@@ -10,6 +13,11 @@ const Header = () => {
     // const header = images[index]
     return (
         <>
+            <div className="logo"><img src={logo} alt="logo" className="logo__image" /></div>
+            <div className="app-header-item"><img src={header1} alt="" className="app-header-item__image" /></div>
+            <div className="app-header-item"><img src={header2} alt="" className="app-header-item__image" /></div>
+            <div className="app-header-item"><img src={header3} alt="" className="app-header-item__image" /></div>
+            {/* <div className="app-header-item"><img src={header4} alt="" className="app-header-item__image" /></div> */}
             {/* <Route path="/" exact render={() => (<img className="app-header__image" src={header1} alt="galaxy far far away" />)} />
             <Route path="/about" exact render={() => (<img className="app-header__image" src={header2} alt="galaxy far far away" />)} />
             <Route path="/planets" exact render={() => (<img className="app-header__image" src={header1} alt="galaxy far far away" />)} />

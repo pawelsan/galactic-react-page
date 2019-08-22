@@ -14,20 +14,20 @@ const Navigation = () => {
     const menu = list.map(item => (
         <li
             key={item.name}
-            className="menu-main__item">
+            className="menu__item">
             <NavLink
                 to={item.path}
                 exact={item.exact ? item.exact : false}
-                className="menu-main__link"
-                activeClassName="menu-main__link--active" >
+                className="menu__link"
+                activeClassName="menu__link--active" >
                 {item.name}
             </NavLink>
         </li>
     ))
     return (
         <div>
-            <nav>
-                <ul className="menu-main">
+            <nav className="menu">
+                <ul className="menu__list">
                     {menu}
                 </ul>
             </nav>

@@ -157,11 +157,11 @@ const App = () => {
             <div className="app">
                 <header className="app-header">
                     {<Header />}
-                    {<Navigation />}
+
                 </header>
                 <main className="app-main">
 
-
+                    {<Navigation />}
 
 
                     {<Page />}

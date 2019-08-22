@@ -20,7 +20,7 @@
     left: 20%;
     top: 0%;
     & .moon {
-    animation:spin 30s ease infinite;
+    animation:spin 30s linear infinite;
     }
 }
 
@@ -57,22 +57,21 @@
     position: relative;
     flex-direction: column;
     min-height: 100vh;
-    width: 90%;
+    // width: 90%;
     margin: 0 auto;
-    color: $primary-color;
+    color: $color1;
 }
 .app-header {
-    flex-basis: 30vh;
+    flex-basis: 20vh;
 }
 
 .app-main {
-    margin-top: 20vh;
     flex-grow: 1;
-    padding: 30px 0;
+    // padding: 30px 0;
 }
 
 .app-footer {
-    background-color: #000;
+    background-color: #2c3531;
     color: #fff;
     padding: 10px 0;
     text-align: center;

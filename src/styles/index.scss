@@ -1,3 +1,5 @@
+@import 'Variables.scss';
+
 * {
   padding: 0;
   margin: 0;
@@ -11,7 +13,7 @@ html {
 
 body {
   position: relative;
-  background-color: #116466;
+  background-color: $color2;
   z-index: -2;
   
   
@@ -19,7 +21,7 @@ body {
     content: '';
     position: absolute;
     background-image: url('../images/galaxy_1920.jpg');
-    background-color: #ccc;
+    background-color: $color5;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -41,14 +43,15 @@ body {
   //position
   max-width: 1200px;
   margin: 0 auto;
+  // border: 2px solid $color2;
   //looks
   font-size: 2rem;
   
-  background-color: #d1e8e2;
-  background-image: linear-gradient(90deg, rgba(155,155,155,.07) 50%, transparent 50%),
-  linear-gradient(90deg, rgba(155,155,155,.13) 50%, transparent 50%),
-  linear-gradient(90deg, transparent 50%, rgba(255,255,255,.17) 50%),
-  linear-gradient(90deg, transparent 50%, rgba(255,255,255,.19) 50%);
-  background-size: 13px, 29px, 37px, 53px;
+  background-color: $color5;
+  // background-image: linear-gradient(90deg, rgba(255,255,255,.07) 50%, transparent 50%),
+  // linear-gradient(90deg, rgba(255,255,255,.13) 50%, transparent 50%),
+  // linear-gradient(90deg, transparent 50%, rgba(255,255,255,.17) 50%),
+  // linear-gradient(90deg, transparent 50%, rgba(255,255,255,.19) 50%);
+  // background-size: 13px, 29px, 37px, 53px;
   // box-shadow: 0 0 4px 0 #000
 }
