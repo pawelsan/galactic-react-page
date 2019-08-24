@@ -146,11 +146,14 @@ class PlanetListPage extends React.Component {
                 /> */}
                 {/* <Modal show={this.state.show} closeModal={this.closeModal} /> */}
                 {/* : */}
-                {!this.state.value || !this.state.suggestions.toString() ? <FullList
+                {/* {!this.state.value || !this.state.suggestions.toString() ? <FullList
                     planet={this.state}
                     click={this.handleClick}
-                /> : null}
-
+                /> : null} */}
+                <FullList
+                    planet={this.state}
+                    click={this.handleClick}
+                />
                 {/* } */}
 
             </div>

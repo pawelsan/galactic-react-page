@@ -1,6 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
+// import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap';
 import '../styles/App.scss';
+
 import Animation from '../components/Animation'
 import moon1 from '../images/moon-63129_640.png'
 import moon2 from '../images/moon-63136_640.png'

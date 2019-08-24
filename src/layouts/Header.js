@@ -1,10 +1,10 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+// import { Route } from 'react-router-dom';
 import logo from '../images/logo.png'
 import header1 from '../images/swamp.jpg';
 import header2 from '../images/murky.jpg';
 import header3 from '../images/cityscape.jpg';
-import header4 from "../images/volcano.jpg"
+// import header4 from "../images/volcano.jpg"
 import '../styles/Header.scss'
 
 const Header = () => {

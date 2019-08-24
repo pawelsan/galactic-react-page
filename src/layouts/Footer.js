@@ -2,7 +2,7 @@ import React from 'react';
 const Footer = () => {
     return (
         <div>
-            Footer
+            &copy; Paweł Hińcza 2019
         </div>
     );
 }

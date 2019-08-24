@@ -30,7 +30,7 @@ class Animation extends Component {
     }
 
     render() {
-        console.log(this.state)
+
         const { src } = this.props;
         return (
             <div

@@ -18,7 +18,7 @@ const Navigation = () => {
             <NavLink
                 to={item.path}
                 exact={item.exact ? item.exact : false}
-                className="menu__link"
+                className="menu__link text-decoration-none"
                 activeClassName="menu__link--active" >
                 {item.name}
             </NavLink>
