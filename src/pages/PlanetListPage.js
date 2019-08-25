@@ -37,7 +37,7 @@ class PlanetListPage extends React.Component {
         fullList: [],
         populationList: [],
         suggestions: [],
-        showModal: false
+        // showModal: false
     }
 
     componentDidMount() {
@@ -99,17 +99,17 @@ class PlanetListPage extends React.Component {
     };
 
 
-    showModal = (e) => {
-        this.setState({
-            show: true
-        })
-    };
+    // showModal = (e) => {
+    //     this.setState({
+    //         showModal: true
+    //     })
+    // };
 
-    closeModal = (e) => {
-        this.setState({
-            show: false
-        })
-    }
+    // closeModal = (e) => {
+    //     this.setState({
+    //         showModal: false
+    //     })
+    // }
 
 
     render() {
@@ -126,9 +126,9 @@ class PlanetListPage extends React.Component {
                     change={this.handleInputChange}
                     click={this.handleClick}
                     planet={this.state}
-                    showModal={this.showModal}
-                    closeModal={this.closeModal}
-                    show={this.state.show}
+                // showModal={this.showModal}
+                // closeModal={this.closeModal}
+                // show={this.state.showModal}
 
                 />
 
@@ -150,10 +150,10 @@ class PlanetListPage extends React.Component {
                     planet={this.state}
                     click={this.handleClick}
                 /> : null} */}
-                <FullList
+                {/* <FullList
                     planet={this.state}
                     click={this.handleClick}
-                />
+                /> */}
                 {/* } */}
 
             </div>

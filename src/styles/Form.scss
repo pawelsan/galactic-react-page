@@ -2,9 +2,9 @@
 
 .search {
     // position: relative;
-    flex-grow: 1;
-    display: flex;
-    width: 30vw;
+    // flex-grow: 1;
+    // display: flex;
+    width: 100%;
     margin: 0 auto;
     // height: 10vh;
     // flex-wrap: wrap;
@@ -78,12 +78,14 @@
             // margin: 0 20px;
             padding: 20px;
             display: block;
+            width: 42%;
             border-left: 2px solid $color3;
             color: $color1;
+            background-color: $color5;
             transition: .2s;
             &:hover {
-                background-color: #eee;
-                color: $color2;
+                background-color: $color5;
+                // color: $color2;
                 transform: translateX(5px);
                 cursor: pointer;
             }

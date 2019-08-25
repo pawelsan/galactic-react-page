@@ -8,6 +8,8 @@ $theme-colors: (
   "color5": #d1e8e2
 );
 
+
+
 $color1: #2c3531;
 $color2: #116466;
 $color3: #d9b08c;
@@ -15,3 +17,8 @@ $color4: #ffcb9a;
 $color5: #d1e8e2;
 $default-font: arial, sans-serif;
 $special-font: 'pt sans', 'roboto', arial, sans-serif;
+
+.form-control:focus {
+  border-color: $color3;
+  box-shadow: inset 0 2px 2px rgba(40, 167, 69, 0.075), 0 0 8px $color3;
+}

@@ -10,16 +10,17 @@
     // flex-basis: 100%;
  
     background-color: $color1;
+    
     font-family: $special-font;
-    height: 70px;
-    padding: 15px 0 15px 200px;
+    height: 100px;
+    padding: 15px 0 15px 180px;
     &__list {
         display: flex;
         list-style: none;
     }
     &__item {
         margin: 0 20px;
-        font-size: 2rem;
+        font-size: 1.5rem;
         text-transform: uppercase;
         line-height: 4rem;
         &:hover {

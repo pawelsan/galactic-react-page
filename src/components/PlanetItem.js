@@ -4,7 +4,7 @@ const PlanetItem = (props) => {
 
     return (
 
-        <li className='planet-item' onClick={() => props.click(props.id)}>
+        <li data-dismiss="modal" className='planet-item' onClick={() => props.click(props.id)}>
 
             {props.suggestion}
 

@@ -4,10 +4,10 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import 'bootstrap/dist/js/bootstrap';
 import '../styles/App.scss';
 
-import Animation from '../components/Animation'
-import moon1 from '../images/moon-63129_640.png'
-import moon2 from '../images/moon-63136_640.png'
-import moon3 from '../images/moon-67501_640.png'
+// import Animation from '../components/Animation'
+// import moon1 from '../images/moon-63129_640.png'
+// import moon2 from '../images/moon-63136_640.png'
+// import moon3 from '../images/moon-67501_640.png'
 import Header from '../layouts/Header'
 import Navigation from '../layouts/Navigation'
 import Page from '../layouts/Page'
@@ -142,7 +142,7 @@ import Footer from '../layouts/Footer'
 const App = () => {
     return (
         <Router>
-            <Animation
+            {/* <Animation
                 src={moon1}
                 ratioX="0.3"
                 ratioY="0.7"
@@ -156,7 +156,8 @@ const App = () => {
                 src={moon3}
                 ratioX="0.5"
                 ratioY="0.25"
-            />
+            /> */}
+
             <div className="app">
                 <header className="app-header">
                     {<Header />}

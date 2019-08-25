@@ -7,13 +7,22 @@ const Modal = (props) => {
     }
     return (
         <>
-            <div className="modal">
-                <h1 className="modal-header">Missing input</h1>
-                <div className="modal-main">
-                    Please insert the first letter
-                </div>
-                <div className="modal-footer">
-                    <button type="button" className="modal-footer__button" onClick={props.closeModal}>Close</button>
+            <div id="modal" className="modal fade" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+                <div className="modal-dialog modal-dialog-centered" role="document">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <h5 className="modal-title" id="modalLabel">Missing input</h5>
+                            <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">x</span>
+                            </button>
+                        </div>
+                        <div className="modal-body">
+                            Please insert the first letter
+                        </div>
+                        <div className="modal-footer">
+                            <button type="button" className="btn btn-secondary" data-dismiss="modal" onClick={props.closeModal}>Close</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </>
