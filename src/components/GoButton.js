@@ -39,7 +39,7 @@ const GoButton = (props) => {
                 <button type="button" className="btn btn-color5 border-color3" data-toggle="modal" data-target="#modal1">Go</button>
                 {/* <button type="button" className="search__body-btn disabled" onClick={props.showModal}>Go</button> */}
 
-                <div id="modal1" className="modal fade" tabindex="-1" role="dialog" aria-labelledby="modal1Label" aria-hidden="true">
+                <div id="modal1" className="modal fade" tabIndex="-1" role="dialog" aria-labelledby="modal1Label" aria-hidden="true">
                     <div className="modal-dialog modal-dialog-centered" role="document">
                         <div className="modal-content">
                             <div className="modal-header">
@@ -49,7 +49,7 @@ const GoButton = (props) => {
                                 </button>
                             </div>
                             <div className="modal-body">
-                                Please insert the first letter
+                                Please insert the first letter and choose an item from the list
                         </div>
                             <div className="modal-footer">
                                 <button type="button" className="btn btn-secondary" data-dismiss="modal"

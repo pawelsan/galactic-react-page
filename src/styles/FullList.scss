@@ -1,29 +1,37 @@
-.full-list {
-    border: 2px solid black;
-    margin-top: 5vh;
+// .full-list {
+//     border: 2px solid black;
+//     margin-top: 5vh;
 
 
 
-    &__title {
+//     &__title {
 
-    }
-    &__wrapper {
+//     }
+//     &__wrapper {
 
-        display: flex;
-        align-content: space-around;
-        flex-wrap: wrap;
-        flex-direction: column;
-        height: 200vh;
+//         display: flex;
+//         align-content: space-around;
+//         flex-wrap: wrap;
+//         flex-direction: column;
+//         height: 200vh;
 
-        margin: 0 auto;
+//         margin: 0 auto;
 
-        .planet-item {
-            list-style: none;
+//         .planet-item {
+//             list-style: none;
 
-            flex-basis: 5%;
-            margin: 10px 0 10px 40px;
+//             flex-basis: 5%;
+//             margin: 10px 0 10px 40px;
 
-        }
-    }
+//         }
+//     }
 
+// }
+
+// .cursor-pointer {
+//     cursor: pointer
+//   }
+
+.cursor-pointer {
+    cursor: pointer;
 }

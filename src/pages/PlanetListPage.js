@@ -1,5 +1,5 @@
 import React from 'react';
-import FullList from '../components/FullList';
+
 import Form from '../components/Form';
 // import Modal from '../components/Modal'
 // import Autosuggest from '../components/Autosuggest';
@@ -18,11 +18,15 @@ const APIS = [
 
 
 const promises = APIS.map(API => fetch(API)).map(API => API.then(response => {
-    if (response.ok) {
-        return response
+    console.log(response)
+    if (response.status !== 200) {
+        throw Error("Nie udało się")
+    } else {
+        return response.json()
     }
-    throw Error("Nie udało się")
-}).then(res => res.json()));
+}))
+//     throw Error("Nie udało się")
+// }).then(res => res.json()));
 
 class PlanetListPage extends React.Component {
     state = {
@@ -37,7 +41,7 @@ class PlanetListPage extends React.Component {
         fullList: [],
         populationList: [],
         suggestions: [],
-        // showModal: false
+        loading: true,
     }
 
     componentDidMount() {
@@ -45,6 +49,7 @@ class PlanetListPage extends React.Component {
             const planetArray = allData.map(dataOfSingleApi => dataOfSingleApi.results).flat(1);
 
             this.setState({
+                loading: false,
                 fullList: planetArray.map(planet => planet.name).filter(name => name !== 'unknown').sort(),
                 populationList: planetArray.map(planet => planet.population * 1).filter(population => !isNaN(population)).sort()
             })

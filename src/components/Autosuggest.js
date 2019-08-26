@@ -9,7 +9,7 @@ const Autosuggest = (props) => {
     return (
         <ul className="search__suggestions">
 
-            {props.planet.value && !props.planet.name && !props.suggestions.toString() ? `Nie mamy w archiwum galaktycznym planety o nazwie ${props.planet.value.toUpperCase()}` : Suggestions}
+            {props.planet.value && props.suggestions.toString() ? Suggestions : null}
 
         </ul>
     );
