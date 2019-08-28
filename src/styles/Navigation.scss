@@ -26,6 +26,10 @@
         &:hover {
             border-bottom: 2px solid $color4;
         }
+        &:nth-last-child(2) {
+            margin: 0 auto;
+        }
+
         &:nth-last-child(1) {
             margin-left: auto;
             margin-right: 100px;
@@ -38,6 +42,7 @@
                 padding: 0 20px;
             }
         }
+        
     }
     &__link {
         display: block;
@@ -45,6 +50,10 @@
         text-decoration: none;
         &:hover {
             color: $color4
+        }
+        &--active {
+            color: $color4;
+
         }
     }
 }

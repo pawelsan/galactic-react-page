@@ -23,7 +23,7 @@ const Form = (props) => {
             <>
                 {/* <Modal show={props.show} closeModal={props.closeModal} /> */}
 
-                <form
+                <form method="POST" data-netlify="true"
                 // className="search"
                 >
 
@@ -32,7 +32,7 @@ const Form = (props) => {
                             <div className="col-12">
                                 <label htmlFor="form-input" className="search__tip">{!props.planet.value && !props.suggestions.toString() ? 'Insert the first letter' : null}</label>
                                 <label htmlFor="form-input" className="search__tip">{props.planet.value && props.suggestions.toString() ? 'Choose from the list' : null}</label>
-                                <label htmlFor="form-input" className="search__tip">{props.planet.value && !props.planet.name && !props.suggestions.toString() ? `Nie mamy w archiwum galaktycznym planety o nazwie ${props.planet.value.toUpperCase()}` : null}</label>
+                                <label htmlFor="form-input" className="search__tip">{props.planet.value && !props.planet.name && !props.suggestions.toString() ? `We have not recorded a planet named "${props.planet.value.toUpperCase()}" in our archives` : null}</label>
                                 <label htmlFor="form-input" className="search__tip">{props.planet.value && !props.suggestions.toString() && props.planet.name ? 'Click "Go" button' : null}</label>
                             </div>
                         </div>

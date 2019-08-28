@@ -5,7 +5,7 @@ import '../styles/Navigation.scss'
 const list = [
     { name: 'start', path: '/', exact: true },
     { name: 'o mnie', path: '/about' },
-    { name: 'planets', path: '/planets' },
+    { name: 'galactic archives', path: '/planets' },
     { name: 'contact', path: '/contact' }
 ]
 
