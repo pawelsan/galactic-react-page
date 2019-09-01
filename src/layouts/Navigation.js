@@ -3,8 +3,8 @@ import { NavLink } from 'react-router-dom';
 import '../styles/Navigation.scss'
 
 const list = [
-    { name: 'start', path: '/', exact: true },
-    { name: 'o mnie', path: '/about' },
+    { name: 'home', path: '/', exact: true },
+    { name: 'about', path: '/about' },
     { name: 'galactic archives', path: '/planets' },
     { name: 'contact', path: '/contact' }
 ]

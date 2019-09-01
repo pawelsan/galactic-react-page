@@ -11,7 +11,7 @@ const PlanetPage = (props) => {
     return (
         <>
             {/* In this component I relied mainly on Bootstrap 4 classes including flex and grid */}
-            <div className='d-flex p-2 align-items-center' style={{ height: '500px' }} >
+            <div className='d-flex p-2 align-items-center' style={{ height: '200px' }} >
                 <div className='card border border-color2' style={{ width: '100%' }}>
                     <div className='row no-gutters'>
                         <div className="col-md-4 bg-color3 d-flex flex-column justify-content-center">
