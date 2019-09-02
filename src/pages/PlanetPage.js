@@ -11,31 +11,33 @@ const PlanetPage = (props) => {
     return (
         <>
             {/* In this component I relied mainly on Bootstrap 4 classes including flex and grid */}
-            <div className='d-flex p-2 align-items-center' style={{ height: '200px' }} >
-                <div className='card border border-color2' style={{ width: '100%' }}>
-                    <div className='row no-gutters'>
-                        <div className="col-md-4 bg-color3 d-flex flex-column justify-content-center">
-                            <img src={require(`../images/${intersection[0]}.jpg`)} alt="" className="card-img-top p-2 bg-color4" />
-                        </div>
-                        <div className="col-md-8">
-                            <div className="card-body d-flex flex-column p-3 bg-color3">
-                                <div className="d-flex">
-                                    <h1 className='card-title d-inline flex-grow-1 font-weight-bold'>{name.toUpperCase()}</h1>
-                                    <Link to="/planets" className="card-link text-color1"> >>Return</Link>
-                                </div>
-                                <ul className='list-group list-group-flush'>
-                                    <li className='card-text list-group-item bg-color4'>Diameter: {diameter === 'unknown' || '0' ? 'unknown' : `${diameter} kilometers`}</li>
-                                    <li className='card-text list-group-item bg-color4'>Climate: {climate}</li>
-                                    <li className='card-text list-group-item bg-color4'>Terrain type: {terrain}</li>
-                                    <li className='card-text list-group-item bg-color4'>Population: {population === 'unknown' ? 'unknown' : `${population / 1000000000} billion`}</li>
-                                    <li className='card-text list-group-item bg-color4'>Population density: {population === 'unknown' || diameter === '0' || 'unknown' ? 'unknown' : `${(population / (4 * Math.pow(diameter / 2, 2) * Math.PI)).toFixed(3)} per square km`}</li>
-                                </ul>
+            <div className="container">
+                <div className='d-flex p-2 align-items-center' style={{ height: 'S00px' }} >
+                    <div className='card border border-color2' style={{ width: '100%' }}>
+                        <div className='row no-gutters'>
+                            <div className="col-md-4 bg-color3 d-flex flex-column justify-content-center">
+                                <img src={require(`../images/${intersection[0]}.jpg`)} alt="" className="card-img-top p-2 bg-color4" />
+                            </div>
+                            <div className="col-md-8">
+                                <div className="card-body d-flex flex-column p-3 bg-color3">
+                                    <div className="d-flex">
+                                        <h1 className='card-title d-inline flex-grow-1 font-weight-bold'>{name.toUpperCase()}</h1>
+                                        <Link to="/planets" className="card-link text-color1"> >>Return</Link>
+                                    </div>
+                                    <ul className='list-group list-group-flush'>
+                                        <li className='card-text list-group-item bg-color4'>Diameter: {diameter === 'unknown' || '0' ? 'unknown' : `${diameter} kilometers`}</li>
+                                        <li className='card-text list-group-item bg-color4'>Climate: {climate}</li>
+                                        <li className='card-text list-group-item bg-color4'>Terrain type: {terrain}</li>
+                                        <li className='card-text list-group-item bg-color4'>Population: {population === 'unknown' ? 'unknown' : `${population / 1000000000} billion`}</li>
+                                        <li className='card-text list-group-item bg-color4'>Population density: {population === 'unknown' || diameter === '0' || 'unknown' ? 'unknown' : `${(population / (4 * Math.pow(diameter / 2, 2) * Math.PI)).toFixed(3)} per square km`}</li>
+                                    </ul>
 
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
+                </div>
             </div>
             {/* <div className='d-flex p-2 justify-content-center' style={{ width: '100%' }} >
                 <Link to="/planets" className=" btn btn-lg btn-color3 text-color1">Powrót do listy planet</Link>

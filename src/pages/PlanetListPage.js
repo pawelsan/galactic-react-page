@@ -120,7 +120,7 @@ class PlanetListPage extends React.Component {
     render() {
 
         return (
-            <div className="planet-list">
+            <div className="planet-list container">
                 <h1 className="planet-list__title">
                     Galactic Archives
                 </h1>

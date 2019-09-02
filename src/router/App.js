@@ -2,13 +2,13 @@ import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap';
-import '../styles/App.scss';
+// import '../styles/App.scss';
 
 // import Animation from '../components/Animation'
 // import moon1 from '../images/moon-63129_640.png'
 // import moon2 from '../images/moon-63136_640.png'
 // import moon3 from '../images/moon-67501_640.png'
-import Header from '../layouts/Header'
+import Jumbotron from '../layouts/Jumbotron'
 import Navigation from '../layouts/Navigation'
 import Page from '../layouts/Page'
 import Footer from '../layouts/Footer'
@@ -158,25 +158,18 @@ const App = () => {
                 ratioY="0.25"
             /> */}
 
-            <div className="app">
-                <header className="app-header">
-                    {<Header />}
 
-                </header>
-                <main className="app-main">
+            <header>
+                {<Navigation />}
+                {<Jumbotron />}
+            </header>
 
-                    {<Navigation />}
+            {<Page />}
 
-
-                    {<Page />}
-
-                </main>
-                <footer className="app-footer">
-                    {<Footer />}
-                </footer>
-
-            </div>
-        </Router>
+            {/* <footer className="app-footer"> */}
+            {<Footer />}
+            {/* </footer> */}
+        </Router >
     );
 }
 

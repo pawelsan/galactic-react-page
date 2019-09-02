@@ -81,10 +81,10 @@
             width: 42%;
             border-left: 2px solid $color3;
             color: $color1;
-            background-color: $color5;
+
             transition: .2s;
             &:hover {
-                background-color: $color5;
+
                 // color: $color2;
                 transform: translateX(5px);
                 cursor: pointer;

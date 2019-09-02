@@ -1,24 +1,35 @@
 @import url('https://fonts.googleapis.com/css?family=PT+Sans:400,700|Roboto:400,700&display=swap&subset=latin-ext');
 
+$font-family-sans-serif: 'pt sans', 'roboto', arial, sans-serif;
+
+$border-radius: 0;
+$border-radius-lg: 0;
+$border-radius-sm: 0;
+
+
+$color1: #bd8c7d;
+$color2: #d1bfa7;
+$color3: #8e8e90;
+$color4: #49494b;
+
+
 $theme-colors: (
-  "color1": #2c3531,
-  "color2": #116466,
-  "color3": #d9b08c,
-  "color4": #ffcb9a,
-  "color5": #d1e8e2
+  "color1": $color1,
+  "color2": $color2,
+  "color3": $color3,
+  "color4": $color4
 );
-
-
-
-$color1: #2c3531;
-$color2: #116466;
-$color3: #d9b08c;
-$color4: #ffcb9a;
-$color5: #d1e8e2;
-$default-font: arial, sans-serif;
-$special-font: 'pt sans', 'roboto', arial, sans-serif;
 
 .form-control:focus {
   border-color: $color3;
   box-shadow: inset 0 2px 2px rgba(40, 167, 69, 0.075), 0 0 8px $color3;
 }
+
+$jumbotron-bg: rgba(#000, 0.5);
+
+$navbar-light-toggler-border-color: transparent;
+$navbar-toggler-padding-padding-y: 0;
+$navbar-toggler-padding-padding-x: 0;
+
+$breadcrumb-bg: transparent;
+$vreadcrumb-padding-x: 0;
