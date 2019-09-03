@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 
 const PlanetPage = (props) => {
@@ -10,6 +11,37 @@ const PlanetPage = (props) => {
     console.log(intersection)
     return (
         <>
+            <div className="container">
+                <nav aria-label="breadcrumb">
+                    <ol className="breadcrumb">
+                        <li
+                            key='Home'
+                            className="breadcrumb-item">
+                            <NavLink
+                                to='/'
+                                exact='true'
+                                // className="nav-link"
+                                activeClassName="active" >
+                                Home
+                            </NavLink>
+                        </li>
+                        <li
+                            key='Home'
+                            className="breadcrumb-item">
+                            <NavLink
+                                to='/planets'
+                                exact='true'
+                                // className="nav-link"
+                                activeClassName="active" >
+                                Galactic Archives
+                            </NavLink>
+                        </li>
+                        <li className="breadcrumb-item">
+                            {name}
+                        </li>
+                    </ol>
+                </nav>
+            </div>
             {/* In this component I relied mainly on Bootstrap 4 classes including flex and grid */}
             <div className="container">
                 <div className='d-flex p-2 align-items-center' style={{ height: 'S00px' }} >

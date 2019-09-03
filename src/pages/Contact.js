@@ -12,7 +12,7 @@ const encode = (data) => {
         .join("&");
 }
 
-class ContactPage extends React.Component {
+class ContactForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -50,7 +50,7 @@ class ContactPage extends React.Component {
 
                     <div className="row">
 
-                        <div className="col-xl-8 offset-xl-2 py-5">
+                        <div className="col py-5">
 
                             <h1>Contact form </h1>
 
@@ -142,4 +142,4 @@ class ContactPage extends React.Component {
     }
 }
 // export default Contact;
-export default ContactPage;
+export default ContactForm;

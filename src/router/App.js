@@ -164,6 +164,7 @@ const App = () => {
                 {<Jumbotron />}
             </header>
 
+
             {<Page />}
 
             {/* <footer className="app-footer"> */}

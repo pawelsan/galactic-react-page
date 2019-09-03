@@ -1,32 +1,72 @@
 import React from 'react';
 const Home = () => {
     return (
-        <div className='d-flex p-2 align-items-center' style={{ height: 'S00px' }} >
-            <div className='card border border-color2' style={{ width: '100%' }}>
-                <div className='row no-gutters'>
-                    <div className="col-md-4 bg-color3 d-flex flex-column justify-content-center">
-                        <img src={require(`../images/gas giant.jpg`)} alt="" className="card-img-top p-2 bg-color4" />
-                    </div>
-                    <div className="col-md-8">
-                        <div className="card-body d-flex flex-column p-3 bg-color3">
-                            <div className="d-flex">
-                                <h1 className='card-title d-inline flex-grow-1 font-weight-bold'>Welcome to my Star-Wars-inspired page</h1>
+        <>
+            <div className="container">
+                <nav aria-label="breadcrumb">
+                    <ol className="breadcrumb">
+                        <li>
+                            Home
+                        </li>
+                    </ol>
+                </nav>
 
-                            </div>
-                            <ul className='list-group list-group-flush'>
-                                <li className='card-text list-group-item bg-color4'>Diameter:</li>
-                                <li className='card-text list-group-item bg-color4'>Climate: </li>
-                                <li className='card-text list-group-item bg-color4'>Terrain type:</li>
-                                <li className='card-text list-group-item bg-color4'>Population: </li>
-                                <li className='card-text list-group-item bg-color4'>Population density: </li>
-                            </ul>
-
+                <main className="row">
+                    <div className="col-md-3">
+                        <h2 className="mb-4">Kategorie</h2>
+                        <div className="list-group">
+                            <a className="list-group-item list-group-item-action active" href="#" >Category 1</a>
+                            <a className="list-group-item list-group-item-action" href="#" >Category 2</a>
+                            <a className="list-group-item list-group-item-action" href="#" >Category 3</a>
+                            <a className="list-group-item list-group-item-action" href="#" >Category 4</a>
                         </div>
                     </div>
-                </div>
-            </div>
+                    <div className="col-md-9">
+                        <h2 className="mb-4">Produkty</h2>
+                        <ul className="pagination">
+                            <li className="page-item"><a href="" className="page-link">Previous</a></li>
+                            <li className="page-item"><a href="" className="page-link">1</a></li>
+                            <li className="page-item"><a href="" className="page-link">2</a></li>
+                            <li className="page-item"><a href="" className="page-link">3</a></li>
+                            <li className="page-item"><a href="" className="page-link">Next</a></li>
+                        </ul>
+                        <div className="row">
+                            <div className="col-md-4">
+                                <div className="card mb-4">
+                                    <img src={require(`../images/foto.png`)} alt="" className="card-img-top" />
+                                    <div className="card-body">
+                                        <h3 className="card-title mb-0">Planeta</h3>
+                                        <p className="mt-0">planeta mała</p>
+                                    </div>
+                                    <div className="card-footer text-center">aaa</div>
+                                </div>
+                            </div>
 
-        </div>
+                            <div className="col-md-4">
+                                <div className="card">
+                                    <img src={require(`../images/foto.png`)} alt="" className="card-img-top" />
+                                    <div className="card-body">
+                                        <h3 className="card-title mb-0">Planeta</h3>
+                                        <p className="mt-0">planeta mała</p>
+                                    </div>
+                                    <div className="card-footer text-center">aaa</div>
+                                </div>
+                            </div>
+                            <div className="col-md-4">
+                                <div className="card">
+                                    <img src={require(`../images/foto.png`)} alt="" className="card-img-top" />
+                                    <div className="card-body">
+                                        <h3 className="card-title mb-0">Planeta</h3>
+                                        <p className="mt-0">planeta mała</p>
+                                    </div>
+                                    <div className="card-footer text-center">aaa</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </>
 
     );
 }

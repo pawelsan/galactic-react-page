@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { NavLink } from 'react-router-dom';
 import Form from '../components/Form';
 // import Modal from '../components/Modal'
 // import Autosuggest from '../components/Autosuggest';
@@ -120,48 +120,70 @@ class PlanetListPage extends React.Component {
     render() {
 
         return (
-            <div className="planet-list container">
-                <h1 className="planet-list__title">
-                    Galactic Archives
+            <>
+                <div className="container">
+                    <nav aria-label="breadcrumb">
+                        <ol className="breadcrumb">
+                            <li
+                                key='Home'
+                                className="breadcrumb-item">
+                                <NavLink
+                                    to='/'
+                                    exact='true'
+                                    // className="nav-link"
+                                    activeClassName="active" >
+                                    Home
+                            </NavLink>
+                            </li>
+                            <li className="breadcrumb-item">
+                                Galactic Archives
+                            </li>
+                        </ol>
+                    </nav>
+                </div>
+                <div className="container">
+                    <h1 className="planet-list__title">
+                        Galactic Archives
                 </h1>
 
-                <Form
-                    value={this.state.value}
-                    suggestions={this.state.suggestions}
-                    change={this.handleInputChange}
-                    click={this.handleClick}
-                    planet={this.state}
-                // showModal={this.showModal}
-                // closeModal={this.closeModal}
-                // show={this.state.showModal}
+                    <Form
+                        value={this.state.value}
+                        suggestions={this.state.suggestions}
+                        change={this.handleInputChange}
+                        click={this.handleClick}
+                        planet={this.state}
+                    // showModal={this.showModal}
+                    // closeModal={this.closeModal}
+                    // show={this.state.showModal}
 
-                />
+                    />
 
-                {/* <GoButton
-                    planet={this.state}
-                /> */}
-
-
-                {/* {this.state.value ? */}
-
-                {/* <Autosuggest
-                    suggestions={this.state.suggestions}
-                    click={this.handleClick}
+                    {/* <GoButton
                     planet={this.state}
                 /> */}
-                {/* <Modal show={this.state.show} closeModal={this.closeModal} /> */}
-                {/* : */}
-                {/* {!this.state.value || !this.state.suggestions.toString() ? <FullList
+
+
+                    {/* {this.state.value ? */}
+
+                    {/* <Autosuggest
+                    suggestions={this.state.suggestions}
+                    click={this.handleClick}
+                    planet={this.state}
+                /> */}
+                    {/* <Modal show={this.state.show} closeModal={this.closeModal} /> */}
+                    {/* : */}
+                    {/* {!this.state.value || !this.state.suggestions.toString() ? <FullList
                     planet={this.state}
                     click={this.handleClick}
                 /> : null} */}
-                {/* <FullList
+                    {/* <FullList
                     planet={this.state}
                     click={this.handleClick}
                 /> */}
-                {/* } */}
+                    {/* } */}
 
-            </div>
+                </div>
+            </>
         );
     }
 }

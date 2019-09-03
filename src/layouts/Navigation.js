@@ -4,10 +4,10 @@ import logo from '../images/logo.png'
 import '../styles/Navigation.scss'
 
 const list = [
-    { name: 'Home', breadcrumb: () => <h2>Home</h2>, path: '/', exact: true },
-    { name: 'About', breadcrumb: () => <h2>About</h2>, path: '/about' },
-    { name: 'Galactic Archives', breadcrumb: () => <h2>Galactic Archives</h2>, path: '/planets' },
-    { name: 'Contact', breadcrumb: () => <h2>Contact</h2>, path: '/contact' }
+    { name: 'Home', path: '/', exact: true },
+    { name: 'About', path: '/about' },
+    { name: 'Galactic Archives', path: '/planets' },
+    // { name: 'Contact', path: '/contact' }
 ]
 
 const Navigation = () => {
@@ -33,13 +33,14 @@ const Navigation = () => {
                 <a href="#" className="navbar-brand">
                     PH's Galactic Archives
                     </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div className="collapse navbar-collapse justify-content-end" id="navbarMenu"></div>
-                <ul className="navbar-nav navbar-right">
-                    {menu}
-                </ul>
+                <div className="collapse navbar-collapse justify-content-end" id="navbarMenu">
+                    <ul className="navbar-nav navbar-right">
+                        {menu}
+                    </ul>
+                </div>
             </div>
         </nav>
 
