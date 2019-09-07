@@ -2,7 +2,7 @@ import React from 'react';
 import ContactForm from '../pages/Contact.js';
 const Footer = () => {
     return (
-        <footer className="bg-color4 text-white py-4 mt-4">
+        <footer className="bg-color4 text-white py-4 mt-4 ">
             <div className="container">
                 <div className="row">
                     <div className="col-md-4">

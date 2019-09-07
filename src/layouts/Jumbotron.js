@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 // import { Route } from 'react-router-dom';
 // import logo from '../images/logo.png'
 // import header1 from '../images/swamp.jpg';
@@ -19,7 +20,8 @@ const Jumbotron = () => {
                     <div className="jumbotron-bg"></div>
                     <h1 className="display-4">Welcome to the Galactic Archives</h1>
                     <p className="lead">"If an item does not appear in our records, it does not exist!"</p>
-                    <button className="btn btn-lg btn-color4">Enter the Archives</button>
+                    <Link to="/planets" className="btn btn-lg btn-color4">Enter the Archives</Link>
+                    {/* <button className="btn btn-lg btn-color4">Enter the Archives</button> */}
                 </div>
             </div>
             {/* <div className="logo"><img src={logo} alt="logo" className="logo__image" /></div>
