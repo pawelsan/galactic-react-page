@@ -6,7 +6,8 @@ import { NavLink } from 'react-router-dom';
 const PlanetPage = (props) => {
     const { name, diameter, climate, terrain, population } = props.location.state
     const terrainTypes = props.location.state.terrain.split(', ');
-    const terrainPictures = ['airless asteroid', 'barren', 'cityscape', 'cloudsea', 'desert', 'deserts', 'forests', 'gas giant', 'grass', 'jungles', 'lakes', 'mountain ranges', 'mountains', 'ocean', 'rainforests', 'rocky', 'savanna', 'swamp', 'urban', 'volcanoes']
+    // The array which has the terrain types that are in accordance with the names of available images and the selection of terrain types from the JSON file
+    const terrainPictures = ['airless asteroid', 'barren', 'cityscape', 'cloudsea', 'desert', 'deserts', 'forests', 'gas giant', 'grass', 'jungles', 'lakes', 'mountain ranges', 'mountains', 'ocean', 'rainforests', 'rock', 'rocky', 'savanna', 'swamp', 'urban', 'volcanoes']
     const intersection = terrainTypes.filter(terrain => terrainPictures.includes(terrain));
     console.log(intersection)
     return (

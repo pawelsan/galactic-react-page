@@ -2,16 +2,18 @@ import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap';
-// import '../styles/App.scss';
+import '../styles/Modal.scss';
 
 // import Animation from '../components/Animation'
 // import moon1 from '../images/moon-63129_640.png'
 // import moon2 from '../images/moon-63136_640.png'
 // import moon3 from '../images/moon-67501_640.png'
-import Jumbotron from '../layouts/Jumbotron'
+
 import Navigation from '../layouts/Navigation'
 import Page from '../layouts/Page'
 import Footer from '../layouts/Footer'
+import WelcomeModal from '../components/WelcomeModal'
+import useModal from '../components/useModal'
 // import Form from '../components/Form';
 // import Autosuggest from '../components/Autosuggest'
 // import Result from '../components/Result';
@@ -140,7 +142,10 @@ import Footer from '../layouts/Footer'
 // render() {
 
 const App = () => {
+    const { isShowing, toggle } = useModal();
+
     return (
+
         <Router>
             {/* <Animation
                 src={moon1}
@@ -158,18 +163,21 @@ const App = () => {
                 ratioY="0.25"
             /> */}
 
+            <WelcomeModal
+                isShowing={isShowing}
+                hide={toggle}
+            />
 
-            <header>
-                {<Navigation />}
-                {<Jumbotron />}
-            </header>
+
+            <Navigation />
 
 
-            {<Page />}
 
-            {/* <footer className="app-footer"> */}
-            {<Footer />}
-            {/* </footer> */}
+            <Page />
+
+
+            <Footer />
+
         </Router >
     );
 }

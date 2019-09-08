@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import Form from '../components/Form';
+// import FullListButton from '../components/FullListButton';
 // import Modal from '../components/Modal'
 // import Autosuggest from '../components/Autosuggest';
 // import GoButton from '../components/GoButton';
@@ -104,21 +105,10 @@ class PlanetListPage extends React.Component {
     };
 
 
-    // showModal = (e) => {
-    //     this.setState({
-    //         showModal: true
-    //     })
-    // };
-
-    // closeModal = (e) => {
-    //     this.setState({
-    //         showModal: false
-    //     })
-    // }
-
 
     render() {
-
+        const add = (a, b) => a + b;
+        const populationSum = this.state.populationList.reduce(add, 0);
         return (
             <>
                 <div className="container">
@@ -142,9 +132,17 @@ class PlanetListPage extends React.Component {
                     </nav>
                 </div>
                 <div className="container">
-                    <h1 className="planet-list__title">
-                        Galactic Archives
-                </h1>
+                    <h1 className="modal-title" id="modal2Label">Currently there are {this.state.fullList.length} planets, moons, and asteroids in the archives</h1>
+                    <p>The total humanoid population of the galaxy is approximately {(populationSum / 1000000000000).toFixed(3)} trillion</p>
+                    {/* <div className="col-5">
+                        <FullListButton
+                            click={this.handleClick}
+                            planet={this.state}
+                        />
+                    </div> */}
+                    <h2 className="planet-list__title">
+                        Search in the Galactic Archives
+                </h2>
 
                     <Form
                         value={this.state.value}
@@ -152,9 +150,7 @@ class PlanetListPage extends React.Component {
                         change={this.handleInputChange}
                         click={this.handleClick}
                         planet={this.state}
-                    // showModal={this.showModal}
-                    // closeModal={this.closeModal}
-                    // show={this.state.showModal}
+
 
                     />
 

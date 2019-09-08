@@ -2,7 +2,7 @@ import React from 'react';
 import GoButton from '../components/GoButton';
 import Autosuggest from '../components/Autosuggest';
 // import Modal from '../components/Modal';
-import FullListButton from '../components/FullListButton';
+
 import '../styles/Form.scss';
 
 const Form = (props) => {
@@ -56,12 +56,12 @@ const Form = (props) => {
                                 />
                                 {/* </button> */}
                             </div>
-                            <div className="col-5">
+                            {/* <div className="col-5">
                                 <FullListButton
                                     planet={props.planet}
                                     click={props.click}
                                 />
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                     <Autosuggest suggestions={props.suggestions} click={props.click} planet={props.planet} />

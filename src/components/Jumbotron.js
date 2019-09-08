@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 // import header2 from '../images/murky.jpg';
 // import header3 from '../images/cityscape.jpg';
 // import header4 from "../images/volcano.jpg"
-import '../styles/Header.scss'
+import '../styles/Jumbotron.scss'
 
 const Jumbotron = () => {
     // const images = [header1, header2];
