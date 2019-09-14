@@ -4,12 +4,14 @@ import PlanetItem from './PlanetItem';
 
 const Autosuggest = (props) => {
 
-    const Suggestions = props.suggestions.filter(name => name !== 'unknown').map(suggestion => <PlanetItem click={props.click} id={suggestion} key={suggestion} suggestion={suggestion} planet={props.planet} />)
+    const Suggestions = props.suggestions.map(suggestion => <PlanetItem
+        // click={props.click} 
+        id={suggestion} key={suggestion} suggestion={suggestion} planets={props.planets} />)
     console.log(Suggestions)
     return (
         <ul className="search__suggestions">
 
-            {props.planet.value && props.suggestions.toString() ? Suggestions : null}
+            {props.value && props.suggestions.toString() ? Suggestions : null}
 
         </ul>
     );

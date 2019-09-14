@@ -9,7 +9,7 @@ const Form = (props) => {
     // const isEnabled = props.suggestions.length > 0;
     // // console.log(isEnabled)
 
-    if (props.planet.loading) {
+    if (props.loading) {
         return (
             <>
                 <div className="spinner-border" role="status">
@@ -17,7 +17,13 @@ const Form = (props) => {
                 </div>
             </>
         )
-    } else {
+    } else if (props.error) {
+        return <h2>Something went wrong...</h2>
+
+    }
+
+
+    else {
 
         return (
             <>
@@ -30,10 +36,10 @@ const Form = (props) => {
                     <div className="form-group">
                         <div className="row no-gutters">
                             <div className="col-12">
-                                <label htmlFor="form-input" className="search__tip">{!props.planet.value && !props.suggestions.toString() ? 'Insert the first letter' : null}</label>
-                                <label htmlFor="form-input" className="search__tip">{props.planet.value && props.suggestions.toString() ? 'Choose from the list' : null}</label>
-                                <label htmlFor="form-input" className="search__tip">{props.planet.value && !props.planet.name && !props.suggestions.toString() ? `We have not recorded a planet named "${props.planet.value.toUpperCase()}" in our archives` : null}</label>
-                                <label htmlFor="form-input" className="search__tip">{props.planet.value && !props.suggestions.toString() && props.planet.name ? 'Click "Go" button' : null}</label>
+                                <label htmlFor="form-input" className="search__tip">{!props.value && !props.suggestions.toString() ? 'Insert the first letter' : null}</label>
+                                <label htmlFor="form-input" className="search__tip">{props.value && props.suggestions.toString() ? 'Choose from the list' : null}</label>
+                                {/* <label htmlFor="form-input" className="search__tip">{props.value && !props.planet.name && !props.suggestions.toString() ? `We have not recorded a planet named "${props.planet.value.toUpperCase()}" in our archives` : null}</label> */}
+                                {/* <label htmlFor="form-input" className="search__tip">{props.planet.value && !props.suggestions.toString() && props.planet.name ? 'Click "Go" button' : null}</label> */}
                             </div>
                         </div>
                         <div className="row no-gutters">
@@ -50,10 +56,10 @@ const Form = (props) => {
                                 {/* <button disabled> */}
                             </div>
                             <div className="col-2">
-                                <GoButton planet={props.planet}
+                                {/* <GoButton planet={props.planet}
 
-                                // show={props.show} showModal={props.showModal}
-                                />
+                                show={props.show} showModal={props.showModal}
+                                /> */}
                                 {/* </button> */}
                             </div>
                             {/* <div className="col-5">
@@ -64,7 +70,10 @@ const Form = (props) => {
                             </div> */}
                         </div>
                     </div>
-                    <Autosuggest suggestions={props.suggestions} click={props.click} planet={props.planet} />
+                    <Autosuggest
+                        suggestions={props.suggestions}
+                        // click={props.click} 
+                        planets={props.planets} />
 
 
                 </form>
