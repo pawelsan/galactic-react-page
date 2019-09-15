@@ -1,11 +1,10 @@
 import React from 'react';
-import PlanetItem from '../components/PlanetItem';
-import Autosuggest from '../components/Autosuggest';
+import PlanetListItem from '../components/PlanetListItem';
 // import Modal from '../components/Modal';
 
-import '../styles/Form.scss';
 
-const Form = ({ value, suggestions, change }) => {
+
+const SearchForm = ({ value, suggestions, change }) => {
     // const isEnabled = props.suggestions.length > 0;
     // // console.log(isEnabled)
 
@@ -15,13 +14,13 @@ const Form = ({ value, suggestions, change }) => {
             <div className="form-group">
                 <div className="row no-gutters">
                     <div className="col-12">
-                        <label htmlFor="form-input" className="search__tip">{!value && !suggestions.toString() ? 'Insert the first letter' : null}</label>
-                        <label htmlFor="form-input" className="search__tip">{value && suggestions.toString() ? 'Choose from the list' : null}</label>
-                        <label htmlFor="form-input" className="search__tip">{value && !suggestions.toString() ? `We have not recorded a planet named "${value.toUpperCase()}" in our archives` : null}</label>
+                        <label htmlFor="form-input" className="text-color2">{!value && !suggestions.toString() ? 'Insert the first letter' : null}</label>
+                        <label htmlFor="form-input" className="text-color2">{value && suggestions.toString() ? 'Choose from the list' : null}</label>
+                        <label htmlFor="form-input" className="text-color2">{value && !suggestions.toString() ? `We have not recorded a planet named "${value.toUpperCase()}" in our archives` : null}</label>
                     </div>
                 </div>
                 <div className="row no-gutters">
-                    <div className="col-5">
+                    <div className="col-6">
                         <input
                             autoComplete="off"
                             className="form-control form-control text-color4 bg-color2 border-color3"
@@ -33,10 +32,10 @@ const Form = ({ value, suggestions, change }) => {
                 </div>
             </div>
             <div className="row no-gutters">
-                <div className="col-5">
-                    <ul className="search__suggestions">
+                <div className="col-12">
+                    <ul className="planet-list">
                         {suggestions.map(planet =>
-                            <PlanetItem
+                            <PlanetListItem
                                 planet={planet}
                             />
                         )}
@@ -101,4 +100,4 @@ const Form = ({ value, suggestions, change }) => {
 }
 
 
-export default Form;
+export default SearchForm;

@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 // import header2 from '../images/murky.jpg';
 // import header3 from '../images/cityscape.jpg';
 // import header4 from "../images/volcano.jpg"
-import '../styles/Jumbotron.scss'
+import '../styles/galaxy.scss'
 
 const Jumbotron = () => {
     // const images = [header1, header2];
@@ -15,13 +15,13 @@ const Jumbotron = () => {
 
     return (
         <>
-            <div className="jumbotron jumbotron-fluid">
+            <div className="jumbotron jumbotron-fluid galaxy-container">
                 <div className="container">
-                    <div className="jumbotron-bg"></div>
+                    <div className="galaxy-bg"></div>
                     <h1 className="display-4">Welcome to the Galactic Archives</h1>
-                    <p className="lead">"If an item does not appear in our records, it does not exist!"</p>
-                    <Link to="/planets" className="btn btn-lg btn-color4">Enter the Archives</Link>
-                    {/* <button className="btn btn-lg btn-color4">Enter the Archives</button> */}
+                    <blockquote className="blockquote"><p className="font-italic">"If an item does not appear in our records, it does not exist!"</p>
+                        <footer className="blockquote-footer text-color2">Jocasta Nu, "Star Wars: Episode II"</footer> </blockquote>
+                    <Link to="/planets" className="btn btn-color1 text-color4">Enter the Archives</Link>
                 </div>
             </div>
             {/* <div className="logo"><img src={logo} alt="logo" className="logo__image" /></div>

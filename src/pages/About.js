@@ -1,35 +1,46 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 const About = () => {
     return (
-        <div className="container">
-            <div className='d-flex p-2 align-items-center' style={{ height: 'S00px' }} >
-                <div className='card border border-color2' style={{ width: '100%' }}>
-                    <div className='row no-gutters'>
-                        <div className="col-md-4 bg-color3 d-flex flex-column justify-content-center">
-                            <img src={require(`../images/foto.png`)} alt="" className="card-img-top p-2 bg-color4" />
+        <>
+            <div className="container">
+                <nav aria-label="breadcrumb">
+                    <ol className="breadcrumb">
+                        <li
+                            key='Home'
+                            className="breadcrumb-item">
+                            <NavLink
+                                to='/'
+                                exact='true'
+                                className="text-color1"
+                                activeClassName="active" >
+                                Home
+                            </NavLink>
+                        </li>
+                        <li className="breadcrumb-item">
+                            About me
+                        </li>
+                    </ol>
+                </nav>
+            </div>
+            <div className="container">
+                <div className='row no-gutters'>
+                    <div className="col-md-4 bg-color4 d-flex flex-column">
+                        <div className="m-3">
+                            <img src={require(`../images/foto.png`)} alt="" className="card-img-top p-1 bg-color2" />
                         </div>
-                        <div className="col-md-8">
-                            <div className="card-body d-flex flex-column p-3 bg-color3">
-                                <div className="d-flex">
-                                    <h1 className='card-title d-inline flex-grow-1 font-weight-bold'>aaa</h1>
-
-                                </div>
-                                <ul className='list-group list-group-flush'>
-                                    <li className='card-text list-group-item bg-color4'>Diameter:</li>
-                                    <li className='card-text list-group-item bg-color4'>Climate: </li>
-                                    <li className='card-text list-group-item bg-color4'>Terrain type:</li>
-                                    <li className='card-text list-group-item bg-color4'>Population: </li>
-                                    <li className='card-text list-group-item bg-color4'>Population density: </li>
-                                </ul>
-
-                            </div>
+                    </div>
+                    <div className="col-md-8">
+                        <div className="p-3 bg-color4">
+                            <p className="text-lg text-color2">
+                                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                    </p>
                         </div>
                     </div>
                 </div>
-
             </div>
-        </div>
 
+        </>
     );
 }
 

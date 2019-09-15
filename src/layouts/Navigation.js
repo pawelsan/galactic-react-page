@@ -5,7 +5,7 @@ import '../styles/Navigation.scss'
 
 const list = [
     { name: 'Home', path: '/', exact: true },
-    { name: 'About', path: '/about' },
+    { name: 'About me', path: '/about' },
     { name: 'Galactic Archives', path: '/planets' },
     // { name: 'Contact', path: '/contact' }
 ]
@@ -19,7 +19,7 @@ const Navigation = () => {
             <NavLink
                 to={item.path}
                 exact={item.exact ? item.exact : false}
-                className="nav-link"
+                className="nav-link text-color4"
                 activeClassName="active" >
                 {item.name}
             </NavLink>
@@ -30,9 +30,9 @@ const Navigation = () => {
         <nav className="navbar navbar-expand-lg sticky-top navbar-light bg-light">
             <div className="container">
                 <div className="logo"><img src={logo} alt="logo" className="logo__image" /></div>
-                <a href="#" className="navbar-brand">
+                <span className="ml-3">
                     PH's Galactic Archives
-                    </a>
+                    </span>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>

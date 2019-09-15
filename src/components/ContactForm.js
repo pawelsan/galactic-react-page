@@ -91,14 +91,14 @@ class ContactForm extends React.Component {
                                         <div className="col-md-6">
                                             <div className="form-group">
                                                 <label htmlFor="form_name">Firstname *</label>
-                                                <input type="text" id="form_name" name="name" value={name} onChange={this.handleChange} className="form-control bg-color5 border-color3" placeholder="Please enter your firstname *" required="required" data-error="Firstname is required" />
+                                                <input type="text" id="form_name" name="name" value={name} onChange={this.handleChange} className="form-control text-color4 bg-color2 border-color3" placeholder="Please enter your firstname *" required="required" data-error="Firstname is required" />
                                                 <div className="help-block with-errors"></div>
                                             </div>
                                         </div>
                                         <div className="col-md-6">
                                             <div className="form-group">
                                                 <label htmlFor="form_email">Email *</label>
-                                                <input type="text" id="form_email" name="email" value={email} onChange={this.handleChange} className="form-control bg-color5 border-color3" placeholder="Please enter your email *" required="required" data-error="Valid email is required" />
+                                                <input type="text" id="form_email" name="email" value={email} onChange={this.handleChange} className="form-control text-color4 bg-color2 border-color3" placeholder="Please enter your email *" required="required" data-error="Valid email is required" />
                                                 <div className="help-block with-errors"></div>
                                             </div>
                                         </div>
@@ -107,7 +107,7 @@ class ContactForm extends React.Component {
                                         <div className="col-md-12">
                                             <div className="form-group">
                                                 <label htmlFor="form_message">Message *</label>
-                                                <textarea name="message" id="form_message" className="form-control bg-color5 border-color3" value={message} onChange={this.handleChange} placeholder="Wpisz wiadomość" rows="4" required="required" data-error="Please, leave us a message."></textarea>
+                                                <textarea name="message" id="form_message" className="form-control text-color4 bg-color2 border-color3" value={message} onChange={this.handleChange} placeholder="Wpisz wiadomość" rows="4" required="required" data-error="Please, leave us a message."></textarea>
                                                 <div className="help-block with-errors"></div>
                                             </div>
                                         </div>
@@ -115,12 +115,12 @@ class ContactForm extends React.Component {
                                         <div data-netlify-recaptcha="true"></div>
                                     </div> */}
                                         <div className="col-md-12">
-                                            <input type="submit" class="btn btn-color1 text-color3 btn-send" value="Send message" />
+                                            <input type="submit" class="btn btn-color1 text-color4 btn-send" value="Send message" />
                                         </div>
                                     </div>
                                     <div className="row">
                                         <div className="col-md-12">
-                                            <p className="text-muted">
+                                            <p className="text-color2">
                                                 <strong>*</strong> These fields are required
                                         </p>
                                         </div>

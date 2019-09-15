@@ -1,58 +1,28 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-
-import axios from 'axios';
-import Planets from '../components/Planets';
-import Pagination from '../components/Pagination';
-import Form from '../components/Form';
-// import FullListButton from '../components/FullListButton';
-// import Modal from '../components/Modal'
-// import Autosuggest from '../components/Autosuggest';
-import PlanetItem from '../components/PlanetItem';
+import PaginationPlanets from '../components/PaginationPlanets';
+import PaginationNav from '../components/PaginationNav';
+import SearchForm from '../components/SearchForm';
 import '../styles/PlanetList.scss';
 
-const PlanetListPage = () => {
 
-    const [planets, setPlanets] = useState([]);
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(false);
+
+const ArchivesPage = ({ planets, loading, error }) => {
+
+
     const [value, setValue] = useState('');
     let [suggestions] = useState([]);
-    const [currentPage, setCurentPage] = useState(1);
+    const [currentPage, setCurrentPage] = useState(1);
     const [postsPerPage] = useState(10);
 
-    useEffect(() => {
-        const fetchPlanets = async () => {
-            setLoading(true);
-            try {
-                const responses = await axios.all([
-                    axios.get(`https://swapi.co/api/planets/?page=1`),
-                    axios.get(`https://swapi.co/api/planets/?page=2`),
-                    axios.get(`https://swapi.co/api/planets/?page=3`),
-                    axios.get(`https://swapi.co/api/planets/?page=4`),
-                    axios.get(`https://swapi.co/api/planets/?page=5`),
-                    axios.get(`https://swapi.co/api/planets/?page=6`),
-                    axios.get(`https://swapi.co/api/planets/?page=7`),
-                ]);
-                const flatResponses = [];
-                responses.forEach(response => flatResponses.push(response.data.results));
-                setPlanets(flatResponses.flat(1).filter(planet => planet.name !== "unknown").sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0)));
-            } catch (error) {
-                setError(true);
-            }
 
-            setLoading(false);
-        }
-        fetchPlanets();
 
-    }, []);
-    console.log(planets);
     //Get search suggestion list
     const suggestionValue = value.trim().toUpperCase();
     const suggestionLength = suggestionValue.length;
     suggestions = suggestionLength === 0 ? [] : planets.filter(planet => planet.name.toUpperCase().slice(0, suggestionLength) === suggestionValue);
     // .map(planet => planet.name);
-    console.log(suggestions)
+
     //Get planets per each part of the long list
     const indexOfLastPlanet = currentPage * postsPerPage;
     const indexOfFirstPlanet = indexOfLastPlanet - postsPerPage;
@@ -60,9 +30,9 @@ const PlanetListPage = () => {
 
     //Change parts of the long list
     const paginate = (pageNumber) => {
-        setCurentPage(pageNumber);
+        setCurrentPage(pageNumber);
     }
-    console.log(value)
+
 
     // const APIS = [
     //     `https://swapi.co/api/planets/?page=1`,
@@ -183,6 +153,8 @@ const PlanetListPage = () => {
     return (
         <>
             <div className="container">
+
+
                 <nav aria-label="breadcrumb">
                     <ol className="breadcrumb">
                         <li
@@ -191,51 +163,56 @@ const PlanetListPage = () => {
                             <NavLink
                                 to='/'
                                 exact='true'
-                                // className="nav-link"
+                                className="text-color1"
                                 activeClassName="active" >
                                 Home
                             </NavLink>
                         </li>
                         <li className="breadcrumb-item">
                             Galactic Archives
-                            </li>
+                        </li>
                     </ol>
                 </nav>
             </div>
-            <div className="container">
-                <h1 className="planet-list__title">Search the Galactic Archives</h1>
-                <h2>Currently there are {planets.length} planets, moons, and asteroids in the archives</h2>
-                <p>The total humanoid population of the galaxy is approximately {(populationSum / 1000000000000).toFixed(3)} trillion</p>
-
-                <Form
-                    value={value}
-                    suggestions={suggestions}
-                    change={event => setValue(event.target.value)}
-                    planets={planets}
-                />
-
-            </div>
-            <div className="container mt-5">
+            <div className="container galaxy-container">
+                <div className="galaxy-bg"></div>
                 <div className="row no-gutters">
-                    <div className="col-5">
+                    <h1 className="planet-list__title">Search the Galactic Archives!</h1>
+                    {/* <h2>Did you know that:</h2> */}
+                    <h2>Currently there are {planets.length} planets, moons, and asteroids in the archives</h2>
+                    <h3>The total humanoid population of the galaxy is approximately {(populationSum / 1000000000000).toFixed(3)} trillion</h3>
+                </div>
+                <div className="row no-gutters mt-5">
+                    <div className="col-6">
 
-                        <Pagination
+
+                        <SearchForm
+                            value={value}
+                            suggestions={suggestions}
+                            change={event => setValue(event.target.value)}
+                            planets={planets}
+                        />
+                    </div>
+
+
+                    <div className="col-6">
+
+                        <PaginationNav
                             postsPerPage={postsPerPage}
                             totalPosts={planets.length}
                             paginate={paginate}
                         />
 
-                        <Planets
+                        <PaginationPlanets
                             planets={currentPlanets}
-                            loading={loading}
-                            error={error}
                         />
 
                     </div>
                 </div>
+
             </div>
         </>
     );
     // }
 }
-export default PlanetListPage;
+export default ArchivesPage;

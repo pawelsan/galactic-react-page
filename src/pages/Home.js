@@ -24,11 +24,16 @@ const Home = () => {
                             <a className="list-group-item list-group-item-action active" id="list-deserts-list" data-toggle="list" href="#list-deserts" role="tab" aria-controls="deserts" >Deserts</a>
                             <a className="list-group-item list-group-item-action" id="list-urban-list" data-toggle="list" href="#list-urban" role="tab" aria-controls="urban" >Urban</a>
                             <a className="list-group-item list-group-item-action" id="list-forests-list" data-toggle="list" href="#list-forests" role="tab" aria-controls="forests" >Forests</a>
-                            <Link to="/planets" className="list-group-item list-group-item-action" role="tab" aria-controls="Archives">See All</Link>
+                            <Link to="/planets" className="list-group-item list-group-item-action bg-color1 text-color4 " role="tab" aria-controls="Archives">See All</Link>
                             {/* <a className="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile" >Enter the archives</a> */}
                         </div>
                     </div>
                     <div className="col-md-9 ">
+                        <div className="row">
+                            <p>
+                                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                    </p>
+                        </div>
                         <div className="row">
                             <div className="tab-content" id="nav-tabContent">
                                 <div className="tab-pane fade show active" id="list-deserts" role="tabpanel" aria-labelledby="list-deserts-list">

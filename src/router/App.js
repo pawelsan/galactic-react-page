@@ -1,5 +1,7 @@
 import React from 'react';
+import { useState, useEffect } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
+import axios from 'axios';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap';
 // import '../styles/Modal.scss';
@@ -10,7 +12,7 @@ import 'bootstrap/dist/js/bootstrap';
 // import moon3 from '../images/moon-67501_640.png'
 
 import Navigation from '../layouts/Navigation'
-import Page from '../layouts/Page'
+import Main from '../layouts/Main'
 import Footer from '../layouts/Footer'
 // import WelcomeModal from '../components/WelcomeModal'
 // import useModal from '../components/useModal'
@@ -143,6 +145,34 @@ import Footer from '../layouts/Footer'
 
 const App = () => {
     // const { isShowing, toggle } = useModal();
+    const [planets, setPlanets] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(false);
+    useEffect(() => {
+        const fetchPlanets = async () => {
+            setLoading(true);
+            try {
+                const responses = await axios.all([
+                    axios.get(`https://swapi.co/api/planets/?page=1`),
+                    axios.get(`https://swapi.co/api/planets/?page=2`),
+                    axios.get(`https://swapi.co/api/planets/?page=3`),
+                    axios.get(`https://swapi.co/api/planets/?page=4`),
+                    axios.get(`https://swapi.co/api/planets/?page=5`),
+                    axios.get(`https://swapi.co/api/planets/?page=6`),
+                    axios.get(`https://swapi.co/api/planets/?page=7`),
+                ]);
+                const flatResponses = [];
+                responses.forEach(response => flatResponses.push(response.data.results));
+                setPlanets(flatResponses.flat(1).filter(planet => planet.name !== "unknown").sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0)));
+            } catch (error) {
+                setError(true);
+            }
+
+            setLoading(false);
+        }
+        fetchPlanets();
+
+    }, []);
 
     return (
 
@@ -173,7 +203,11 @@ const App = () => {
 
 
 
-            <Page />
+            <Main
+                planets={planets}
+                loading={loading}
+                error={error}
+            />
 
 
             <Footer />
