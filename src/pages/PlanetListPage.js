@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink, Link } from 'react-router-dom';
-// import { Link } from "react-router-dom";
+import { NavLink } from 'react-router-dom';
+
 import axios from 'axios';
 import Planets from '../components/Planets';
 import Pagination from '../components/Pagination';
-// import Form from '../components/Form';
+import Form from '../components/Form';
 // import FullListButton from '../components/FullListButton';
 // import Modal from '../components/Modal'
 // import Autosuggest from '../components/Autosuggest';
-// import GoButton from '../components/GoButton';
+import PlanetItem from '../components/PlanetItem';
 import '../styles/PlanetList.scss';
 
 const PlanetListPage = () => {
@@ -203,94 +203,37 @@ const PlanetListPage = () => {
                 </nav>
             </div>
             <div className="container">
-                <h1 className="modal-title" id="modal2Label">Currently there are {planets.length} planets, moons, and asteroids in the archives</h1>
+                <h1 className="planet-list__title">Search the Galactic Archives</h1>
+                <h2>Currently there are {planets.length} planets, moons, and asteroids in the archives</h2>
                 <p>The total humanoid population of the galaxy is approximately {(populationSum / 1000000000000).toFixed(3)} trillion</p>
-                <h2 className="planet-list__title">
-                    Search in the Galactic Archives
-                </h2>
-                <div className="form-group">
-                    <div className="row no-gutters">
-                        <div className="col-12">
-                            <label htmlFor="form-input" className="search__tip">{!value && !suggestions.toString() ? 'Insert the first letter' : null}</label>
-                            <label htmlFor="form-input" className="search__tip">{value && suggestions.toString() ? 'Choose from the list' : null}</label>
-                            <label htmlFor="form-input" className="search__tip">{value && !suggestions.toString() ? `We have not recorded a planet named "${value.toUpperCase()}" in our archives` : null}</label>
-                        </div>
-                    </div>
-                    <div className="row no-gutters">
-                        <div className="col-5">
-                            <input
-                                autoComplete="off"
-                                className="form-control form-control text-color4 bg-color2 border-color3"
-                                type="text"
-                                value={value}
-                                onChange={event => setValue(event.target.value)}
-                            />
-                        </div>
-                    </div>
-                </div>
-                <ul className="search__suggestions">
-                    {suggestions.map(suggestion =>
-                        <li className='planet-item list-group-item d-block bg-color2 cursor-pointer'>
-                            <Link
-                                className="d-block text-color4 text-decoration-none"
-                                role="button"
-                                to={{
-                                    pathname: `/planet/${suggestion.name}`,
-                                    state: {
-                                        name: suggestion.name,
-                                        diameter: suggestion.diameter,
-                                        climate: suggestion.climate,
-                                        terrain: suggestion.terrain,
-                                        population: suggestion.population
-                                    }
-                                }}
-                            >
-                                {suggestion.name}
-                            </Link>
-                        </li>
-                    )}
-                </ul>
 
-
-                {/* <Form
+                <Form
                     value={value}
                     suggestions={suggestions}
                     change={event => setValue(event.target.value)}
-                    loading={loading}
-                    error={error}
-                    // click={this.handleClick}
                     planets={planets}
-
-
-                /> */}
-
-                {/* <GoButton
-                    planet={this.state}
-                /> */}
-
-
-                {/* {this.state.value ? */}
-
-                {/* <Autosuggest
-                    suggestions={this.state.suggestions}
-                    click={this.handleClick}
-                    planet={this.state}
-                /> */}
-                {/* <Modal show={this.state.show} closeModal={this.closeModal} /> */}
-                {/* : */}
-                {/* {!this.state.value || !this.state.suggestions.toString() ? <FullList
-                    planet={this.state}
-                    click={this.handleClick}
-                /> : null} */}
-                {/* <FullList
-                    planet={this.state}
-                    click={this.handleClick}
-                /> */}
-                {/* } */}
+                />
 
             </div>
-            <Planets planets={currentPlanets} loading={loading} error={error} />
-            <Pagination postsPerPage={postsPerPage} totalPosts={planets.length} paginate={paginate} />
+            <div className="container mt-5">
+                <div className="row no-gutters">
+                    <div className="col-5">
+
+                        <Pagination
+                            postsPerPage={postsPerPage}
+                            totalPosts={planets.length}
+                            paginate={paginate}
+                        />
+
+                        <Planets
+                            planets={currentPlanets}
+                            loading={loading}
+                            error={error}
+                        />
+
+                    </div>
+                </div>
+            </div>
         </>
     );
     // }

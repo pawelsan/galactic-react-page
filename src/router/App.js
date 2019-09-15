@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap';
-import '../styles/Modal.scss';
+// import '../styles/Modal.scss';
 
 // import Animation from '../components/Animation'
 // import moon1 from '../images/moon-63129_640.png'
@@ -12,8 +12,8 @@ import '../styles/Modal.scss';
 import Navigation from '../layouts/Navigation'
 import Page from '../layouts/Page'
 import Footer from '../layouts/Footer'
-import WelcomeModal from '../components/WelcomeModal'
-import useModal from '../components/useModal'
+// import WelcomeModal from '../components/WelcomeModal'
+// import useModal from '../components/useModal'
 // import Form from '../components/Form';
 // import Autosuggest from '../components/Autosuggest'
 // import Result from '../components/Result';
@@ -142,7 +142,7 @@ import useModal from '../components/useModal'
 // render() {
 
 const App = () => {
-    const { isShowing, toggle } = useModal();
+    // const { isShowing, toggle } = useModal();
 
     return (
 
@@ -163,10 +163,10 @@ const App = () => {
                 ratioY="0.25"
             /> */}
 
-            <WelcomeModal
+            {/* <WelcomeModal
                 isShowing={isShowing}
                 hide={toggle}
-            />
+            /> */}
 
 
             <Navigation />
