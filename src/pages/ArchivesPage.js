@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import PaginationPlanets from '../components/PaginationPlanets';
+import PaginationList from '../components/PaginationList';
 import PaginationNav from '../components/PaginationNav';
 import SearchForm from '../components/SearchForm';
 import '../styles/PlanetList.scss';
@@ -11,7 +11,6 @@ const ArchivesPage = ({ planets, loading, error }) => {
 
 
     const [value, setValue] = useState('');
-    let [suggestions] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [postsPerPage] = useState(10);
 
@@ -20,7 +19,7 @@ const ArchivesPage = ({ planets, loading, error }) => {
     //Get search suggestion list
     const suggestionValue = value.trim().toUpperCase();
     const suggestionLength = suggestionValue.length;
-    suggestions = suggestionLength === 0 ? [] : planets.filter(planet => planet.name.toUpperCase().slice(0, suggestionLength) === suggestionValue);
+    const suggestions = suggestionLength === 0 ? [] : planets.filter(planet => planet.name.toUpperCase().slice(0, suggestionLength) === suggestionValue);
     // .map(planet => planet.name);
 
     //Get planets per each part of the long list
@@ -176,16 +175,15 @@ const ArchivesPage = ({ planets, loading, error }) => {
             </div>
             <div className="container galaxy-container">
                 <div className="galaxy-bg"></div>
-                <div className="row no-gutters">
-                    <h1 className="planet-list__title">Search the Galactic Archives!</h1>
-                    {/* <h2>Did you know that:</h2> */}
-                    <h2>Currently there are {planets.length} planets, moons, and asteroids in the archives</h2>
-                    <h3>The total humanoid population of the galaxy is approximately {(populationSum / 1000000000000).toFixed(3)} trillion</h3>
+                <div className="row no-gutters d-flex justify-content-center">
+                    <div className="my-2 d-flex flex-column">
+                        <h1 className="planet-list__title">Search the Galactic Archives!</h1>
+                        <p>Currently there are {planets.length} planets, moons, and asteroids in the archives</p>
+                        <p>The total humanoid population of the galaxy is approximately {(populationSum / 1000000000000).toFixed(3)} trillion</p>
+                    </div>
                 </div>
                 <div className="row no-gutters mt-5">
                     <div className="col-6">
-
-
                         <SearchForm
                             value={value}
                             suggestions={suggestions}
@@ -193,20 +191,15 @@ const ArchivesPage = ({ planets, loading, error }) => {
                             planets={planets}
                         />
                     </div>
-
-
                     <div className="col-6">
-
                         <PaginationNav
                             postsPerPage={postsPerPage}
                             totalPosts={planets.length}
                             paginate={paginate}
                         />
-
-                        <PaginationPlanets
+                        <PaginationList
                             planets={currentPlanets}
                         />
-
                     </div>
                 </div>
 

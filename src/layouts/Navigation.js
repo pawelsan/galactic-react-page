@@ -7,7 +7,6 @@ const list = [
     { name: 'Home', path: '/', exact: true },
     { name: 'About me', path: '/about' },
     { name: 'Galactic Archives', path: '/planets' },
-    // { name: 'Contact', path: '/contact' }
 ]
 
 const Navigation = () => {

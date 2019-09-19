@@ -9,11 +9,19 @@
             width: 50%;
             border-left: 2px solid $color3;
             color: $color1;
-
             transition: .2s;
+            @media (max-width: 991px) {
+                width: 70%;
+            }
+            @media (max-width: 575px) {
+                width: 90%;
+            }
             &:hover {
                 transform: translateX(5px);
                 cursor: pointer;
+                @media (max-width: 575px) {
+                    transform: translateX(0px);
+                }
             }
         }
        

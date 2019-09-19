@@ -47,11 +47,11 @@ const PlanetPage = (props) => {
                 <div className='d-flex p-2 align-items-center'>
                     <div className='card border border-color2'>
                         <div className='row no-gutters'>
-                            <div className="col-md-4 bg-color4 d-flex justify-content-center pt-3">
+                            <div className="col-md-12 bg-color4 d-flex justify-content-between pt-3 pl-3">
                                 <h1 className='card-title d-inline font-weight-bold text-color2'>{name.toUpperCase()}</h1>
-                            </div>
-                            <div className="col-md-8 bg-color4 d-flex flex-column justify-content-center">
-                                <div className="d-flex flex-row-reverse pr-4">
+
+
+                                <div className="d-flex flex-column justify-content-center pr-4">
                                     <Link to="/planets" className="btn btn-color1 text-color4">Return</Link>
                                 </div>
                             </div>
@@ -60,12 +60,12 @@ const PlanetPage = (props) => {
 
                         <div className='row no-gutters'>
                             <div className="col-md-4 bg-color4 d-flex flex-column">
-                                <div className="ml-3 mt-3">
+                                <div className="m-3">
                                     <img src={require(`../images/${intersection[0]}.jpg`)} alt="" className="card-img-top p-1 bg-color2" />
                                 </div>
                             </div>
                             <div className="col-md-8">
-                                <div className="card-body d-flex flex-column p-3 bg-color4">
+                                <div className="card-body d-flex flex-column bg-color4">
 
                                     <ul className='list-group list-group-flush'>
                                         <li className='card-text list-group-item bg-color2'>Diameter: {diameter === 'unknown' || '0' ? 'unknown' : `${diameter} kilometers`}</li>
