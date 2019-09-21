@@ -4,7 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 import Home from '../pages/Home.js';
 import About from '../pages/About.js';
 import ArchivesPage from '../pages/ArchivesPage.js';
-
+import Disclaimer from '../pages/Disclaimer.js'
 import ErrorPage from '../pages/Error.js'
 import PlanetPage from '../pages/PlanetPage.js';
 
@@ -26,7 +26,7 @@ const Main = ({ planets, loading, error }) => {
                 )}
                 />
                 <Route path="/planet/:id" component={PlanetPage} />
-                {/* <Route path="/contact" component={Contact} /> */}
+                <Route path="/disclaimer" component={Disclaimer} />
                 <Route component={ErrorPage} />
             </Switch>
         </>

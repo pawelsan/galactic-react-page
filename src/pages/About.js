@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+
 const About = () => {
     return (
         <>
@@ -18,7 +19,7 @@ const About = () => {
                             </NavLink>
                         </li>
                         <li className="breadcrumb-item">
-                            About me
+                            About
                         </li>
                     </ol>
                 </nav>

@@ -13,13 +13,6 @@ const Footer = () => {
                             <ul className="nav py-5">
                                 <li className="nav-item">
                                     <a
-                                        href='https://www.facebook.com/profile.php?id=652915762'
-                                        className="text-color2 nav-link">
-                                        <i class="fab fa-facebook-f fa-2x"></i>
-                                    </a>
-                                </li>
-                                <li className="nav-item">
-                                    <a
                                         href='https://www.linkedin.com/in/pawe%C5%82-hi%C5%84cza-105926103/'
                                         className="text-color2 nav-link">
                                         <i class="fab fa-linkedin-in fa-2x"></i>
@@ -40,12 +33,18 @@ const Footer = () => {
                                 exact='true'
                                 className="text-color2"
                                 activeClassName="active" >
-                                About me
+                                About
                         </NavLink>
                         </div>
                         <div className="row ml-1">
-                            Disclaimer
-                    </div>
+                            <NavLink
+                                to='/disclaimer'
+                                exact='true'
+                                className="text-color2"
+                                activeClassName="active" >
+                                Disclaimer
+                            </NavLink>
+                        </div>
                     </div>
                     <div className="col-md-8">
                         <div className="row">
