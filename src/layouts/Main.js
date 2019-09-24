@@ -15,7 +15,13 @@ const Main = ({ planets, loading, error }) => {
     return (
         <>
             <Switch>
-                <Route path="/" exact component={Home} />
+                <Route path="/" exact render={() => (
+                    <Home
+                        planets={planets}
+                        loading={loading}
+                        error={error} />
+                )}
+                />
                 <Route path="/about" component={About} />
                 <Route path="/planets" render={() => (
                     <ArchivesPage

@@ -32,128 +32,29 @@ const ArchivesPage = ({ planets, loading, error }) => {
         setCurrentPage(pageNumber);
     }
 
-
-    // const APIS = [
-    //     `https://swapi.co/api/planets/?page=1`,
-    //     `https://swapi.co/api/planets/?page=2`,
-    //     `https://swapi.co/api/planets/?page=3`,
-    //     `https://swapi.co/api/planets/?page=4`,
-    //     `https://swapi.co/api/planets/?page=5`,
-    //     `https://swapi.co/api/planets/?page=6`,
-    //     `https://swapi.co/api/planets/?page=7`];
-
-
-    // const promises = APIS.map(API => fetch(API)).map(API => API.then(response => {
-    //     console.log(response)
-    //     if (response.status !== 200) {
-    //         throw Error("Nie udało się")
-    //     } else {
-    //         return response.json()
-    //     }
-    // }))
-    // //     throw Error("Nie udało się")
-    // // }).then(res => res.json()));
-
-    // class PlanetListPage extends React.Component {
-    //     state = {
-    //         // id: "",
-    //         value: "",
-    //         name: "",
-    //         diameter: "",
-    //         climate: "",
-    //         terrain: "",
-    //         population: "",
-    //         err: false,
-    //         fullList: [],
-    //         populationList: [],
-    //         suggestions: [],
-    //         loading: true,
-    //     }
-
-    //     componentDidMount() {
-    //         Promise.all(promises).then(allData => {
-    //             const planetArray = allData.map(dataOfSingleApi => dataOfSingleApi.results).flat(1);
-
-    //             this.setState({
-    //                 loading: false,
-    //                 fullList: planetArray.map(planet => planet.name).filter(name => name !== 'unknown').sort(),
-    //                 populationList: planetArray.map(planet => planet.population * 1).filter(population => !isNaN(population)).sort()
-    //             })
-    //         })
-
-    //     }
-
-    //     handleInputChange = (e) => {
-    //         this.setState({
-    //             name: '',
-    //             err: false,
-    //             value: e.target.value,
-    //         })
-    //         Promise.all(promises).then(allData => {
-    //             const planetArray = allData.map(dataOfSingleApi => dataOfSingleApi.results).flat(1);
-    //             const suggestionValue = this.state.value.trim().toUpperCase();
-    //             const suggestionLength = suggestionValue.length;
-
-    //             this.setState({
-    //                 suggestions: suggestionLength === 0 ? [] : planetArray.filter(planet => planet.name.toUpperCase().slice(0, suggestionLength) === suggestionValue).map(planet => planet.name)
-    //             })
-    //         })
-    //     };
-
-    // handleClick = (id) => {
-    //     this.setState({
-    //         value: id
-    //     });
-
-    //     Promise.all(promises).then(allData => {
-    //         const singleApiData = allData.find(singleApiData => singleApiData.results.find(planet => planet.name.toUpperCase() === this.state.value.toUpperCase()));
-    //         const planet = singleApiData.results.find(planet => planet.name.toUpperCase() === this.state.value.toUpperCase());
-    //         console.log(planet)
-    //         this.setState(prevState => ({
-    //             err: false,
-    //             // value: '',
-    //             name: prevState.value,
-    //             diameter: planet.diameter,
-    //             climate: planet.climate,
-    //             terrain: planet.terrain,
-    //             population: planet.population,
-    //             suggestions: []
-    //         }))
-
-    //     }).catch(err => {
-    //         this.setState(prevState => ({
-    //             err: true,
-    //             name: prevState.value
-    //         }))
-    //     });
-
-    // };
-
-
-
-    // render() {
     const add = (a, b) => a + b;
     const populationList = planets.map(planet => planet.population * 1).filter(population => !isNaN(population)).sort()
     const populationSum = populationList.reduce(add, 0);
 
     if (loading) {
         return (
-            <>
-                <div className="spinner-border" role="status">
-                    <span className="sr-only">Loading...</span>
-                </div>
-            </>
+
+            <div className="spinner-border loading-error" role="status">
+                <span className="sr-only">Loading...</span>
+            </div>
         )
     } else if (error) {
-        return <h2>Something went wrong...</h2>
+        return (
+            <div className="loading-error">
+                <h2>Something went wrong...</h2>
+            </div >
+        )
 
     }
 
     return (
         <>
             <div className="container">
-
-
                 <nav aria-label="breadcrumb">
                     <ol className="breadcrumb">
                         <li
@@ -176,22 +77,18 @@ const ArchivesPage = ({ planets, loading, error }) => {
             <div className="container galaxy-container">
                 <div className="galaxy-bg"></div>
                 <div className="row no-gutters d-flex justify-content-center">
-                    <div className="my-2 d-flex flex-column">
+                    <div className="my-2 d-flex flex-column align-items-center">
                         <h1 className="planet-list__title">Search the Galactic Archives!</h1>
                         <p>Currently there are {planets.length} planets, moons, and asteroids in the archives</p>
                         <p>The total humanoid population of the galaxy is approximately {(populationSum / 1000000000000).toFixed(3)} trillion</p>
-                    </div>
-                </div>
-                <div className="row no-gutters mt-5">
-                    <div className="col-6">
+
                         <SearchForm
                             value={value}
                             suggestions={suggestions}
                             change={event => setValue(event.target.value)}
                             planets={planets}
                         />
-                    </div>
-                    <div className="col-6">
+
                         <PaginationNav
                             postsPerPage={postsPerPage}
                             totalPosts={planets.length}
@@ -206,6 +103,5 @@ const ArchivesPage = ({ planets, loading, error }) => {
             </div>
         </>
     );
-    // }
 }
 export default ArchivesPage;

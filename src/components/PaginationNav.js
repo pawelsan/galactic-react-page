@@ -9,7 +9,7 @@ const PaginationNav = ({ postsPerPage, totalPosts, paginate }) => {
 
     return (
         <nav>
-            <p className="text-color2">or browse the full list below</p>
+            <p className="text-center text-color2">or browse the full list below</p>
             <ul className="pagination">
                 {pageNumbers.map(number => (
                     <li key={number} className="page-item">

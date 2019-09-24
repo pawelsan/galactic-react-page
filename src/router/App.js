@@ -15,6 +15,7 @@ const App = () => {
     useEffect(() => {
         const fetchPlanets = async () => {
             setLoading(true);
+            // All APIs fetched at once, solution is deliberate because swapi does not provide a way to fetch particular items
             try {
                 const responses = await axios.all([
                     axios.get(`https://swapi.co/api/planets/?page=1`),
@@ -25,9 +26,13 @@ const App = () => {
                     axios.get(`https://swapi.co/api/planets/?page=6`),
                     axios.get(`https://swapi.co/api/planets/?page=7`),
                 ]);
-                const flatResponses = [];
-                responses.forEach(response => flatResponses.push(response.data.results));
-                setPlanets(flatResponses.flat(1).filter(planet => planet.name !== "unknown").sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0)));
+                const normalizedResponses = [];
+                responses.forEach(response => normalizedResponses
+                    .push(response.data.results));
+                setPlanets(normalizedResponses
+                    .filter(planet => planet.name !== "unknown")
+                    .flat(1)
+                    .sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0)));
             } catch (error) {
                 setError(true);
             }

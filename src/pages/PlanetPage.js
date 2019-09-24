@@ -70,8 +70,8 @@ const PlanetPage = (props) => {
                                     <ul className='list-group list-group-flush'>
                                         <li className='card-text list-group-item bg-color2'>Diameter: {diameter === 'unknown' || '0' ? 'unknown' : `${diameter} kilometers`}</li>
                                         <li className='card-text list-group-item bg-color2'>Gravity: {gravity}</li>
-                                        <li className='card-text list-group-item bg-color2'>A day's length is {rotation} hours</li>
-                                        <li className='card-text list-group-item bg-color2'>A year's length is {orbit} days</li>
+                                        <li className='card-text list-group-item bg-color2'>{rotation !== 'unknown' ? `A day's length is ${rotation} hours` : `A day's length is ${rotation}`}</li>
+                                        <li className='card-text list-group-item bg-color2'>{orbit !== 'unknown' ? `A year's length is ${orbit} hours` : `A year's length is ${orbit}`}</li>
                                         <li className='card-text list-group-item bg-color2'>Climate: {climate}</li>
                                         <li className='card-text list-group-item bg-color2'>Oceans cover {water} percent of this planet's surface</li>
                                         <li className='card-text list-group-item bg-color2'>Terrain type: {terrain}</li>

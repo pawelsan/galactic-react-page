@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const PlanetListItem = ({ planet }) => {
     return (
-        <li key={planet.name} className='planet-list__item list-group-item d-block bg-color2 cursor-pointer'>
+        <li key={planet.name} className='planet-list__item'>
             <Link
                 className="d-block text-color4 text-decoration-none"
                 role="button"

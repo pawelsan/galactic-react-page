@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import Jumbotron from '../components/Jumbotron'
 import '../styles/picture.scss'
 const Home = () => {
-
     return (
         <>
 
@@ -34,7 +33,7 @@ const Home = () => {
                                 <div className="tab-pane fade show active" id="list-deserts" role="tabpanel" aria-labelledby="list-deserts-list">
                                     <div className="row">
                                         <div className="col-md-4">
-                                            <div className="card mb-4">
+                                            <div className="card">
                                                 <img src={require(`../images/rock.jpg`)} alt="" className="card-img-top picture-small" />
                                                 <div className="card-body">
                                                     <h3 className="card-title mb-0">GEONOSIS</h3>
