@@ -6,7 +6,7 @@
 
     .galaxy-bg {
         position: absolute;
-        background-image: url('../images/galaxy_1920.jpg');
+        background-image: url('../images/galaxy_1280.jpg');
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -15,6 +15,11 @@
         width: 100%;
         height: 100%;
         z-index: -1;
+        
+        @media (max-width: 991px) {
+            background-image: url('../images/galaxy_640.jpg');
+        }
+
        
     }
 }

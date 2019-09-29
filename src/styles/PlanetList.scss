@@ -4,17 +4,22 @@
         display: flex;
         flex-direction: column;
         &__item {
+            list-style: none;
+        }
+        &__link {
             margin: 3px;
             padding: 20px;
             display: block;
             background-color: $color2;
             border-left: 2px solid $color3;
-            color: $color1;
+            color: $color4;
             transition: .2s;
 
             &:hover {
                 background-color: darken($color2, 10%);
+                color: darken($color4, 30%);
                 cursor: pointer;
+                text-decoration: none;
             }
         }
        

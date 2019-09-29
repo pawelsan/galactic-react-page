@@ -5,7 +5,7 @@ const PlanetListItem = ({ planet }) => {
     return (
         <li key={planet.name} className='planet-list__item'>
             <Link
-                className="d-block text-color4 text-decoration-none"
+                className="planet-list__link"
                 role="button"
                 to={{
                     pathname: `/planet/${planet.name}`,

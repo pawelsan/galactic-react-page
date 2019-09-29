@@ -8,19 +8,15 @@ import '../styles/PlanetList.scss';
 
 
 const ArchivesPage = ({ planets, loading, error }) => {
-
-
     const [value, setValue] = useState('');
     const [currentPage, setCurrentPage] = useState(1);
-    const [postsPerPage] = useState(10);
 
-
+    const postsPerPage = 10;
 
     //Get search suggestion list
     const suggestionValue = value.trim().toUpperCase();
     const suggestionLength = suggestionValue.length;
     const suggestions = suggestionLength === 0 ? [] : planets.filter(planet => planet.name.toUpperCase().slice(0, suggestionLength) === suggestionValue);
-    // .map(planet => planet.name);
 
     //Get planets per each part of the long list
     const indexOfLastPlanet = currentPage * postsPerPage;
@@ -31,7 +27,6 @@ const ArchivesPage = ({ planets, loading, error }) => {
     const paginate = (pageNumber) => {
         setCurrentPage(pageNumber);
     }
-
     const add = (a, b) => a + b;
     const populationList = planets.map(planet => planet.population * 1).filter(population => !isNaN(population)).sort()
     const populationSum = populationList.reduce(add, 0);
@@ -49,9 +44,7 @@ const ArchivesPage = ({ planets, loading, error }) => {
                 <h2>Something went wrong...</h2>
             </div >
         )
-
     }
-
     return (
         <>
             <div className="container">
