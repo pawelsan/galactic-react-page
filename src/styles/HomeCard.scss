@@ -1,0 +1,19 @@
+@import 'Variables.scss';
+
+.tab-content {
+    width: 100%;
+    .tab-pane {
+        width: 100%;
+        .loading-error {
+            display: block;
+            margin: 0 auto;
+        }
+    }
+}
+
+.card {
+    &:hover {
+        border: 2px solid $color3;
+        color: $color4
+    }
+}

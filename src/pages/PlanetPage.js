@@ -52,7 +52,7 @@ const PlanetPage = (props) => {
 
 
                                 <div className="d-flex flex-column justify-content-center pr-4">
-                                    <Link to="/planets" className="btn btn-color1 text-color4">Back to Galactic Archives</Link>
+                                    <Link to="/planets" className="btn btn-color1 text-color4">X</Link>
                                 </div>
                             </div>
                         </div>
