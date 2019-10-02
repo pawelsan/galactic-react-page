@@ -2,27 +2,12 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import '../styles/HomeCard.scss';
 
-const HomeCard = ({ planets, loading, error }) => {
+const HomeCard = ({ planets, loading }) => {
     // The array which has the terrain types that are in accordance with the names of available images and the selection of terrain types from the JSON file
     const terrainPictures = ['barren', 'cityscape', 'desert', 'forests', 'jungles', 'rainforests', 'rock', 'swamp', 'urban', 'volcanoes']
 
-    if (loading) {
-        return (
-            <div className="spinner-border loading-error" role="status">
-                <span className="sr-only">Loading...</span>
-            </div>
-        )
-    } else if (error) {
-        return (
-            <div className="loading-error">
-                <h2>Something went wrong...</h2>
-            </div >
-        )
-
-    }
-
     return (
-        <div className="row d-flex justify-content-center">
+        <div className="row">
             {planets.map(planet => (
                 <div className="col-md-4">
                     <Link
@@ -54,7 +39,7 @@ const HomeCard = ({ planets, loading, error }) => {
                     </Link>
                 </div>
             ))}
-            <Link to="/planets" className="nav-link mt-3 btn-color1 text-color4" role="button" aria-controls="Archives">See All</Link>
+
         </div>
     );
 }

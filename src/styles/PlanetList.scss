@@ -3,6 +3,9 @@
 .planet-list {
         display: flex;
         flex-direction: column;
+        &__title {
+            margin-top: 1rem;
+        }
         &__item {
             list-style: none;
         }

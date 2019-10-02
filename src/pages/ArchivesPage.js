@@ -31,20 +31,6 @@ const ArchivesPage = ({ planets, loading, error }) => {
     const populationList = planets.map(planet => planet.population * 1).filter(population => !isNaN(population)).sort()
     const populationSum = populationList.reduce(add, 0);
 
-    if (loading) {
-        return (
-
-            <div className="spinner-border loading-error" role="status">
-                <span className="sr-only">Loading...</span>
-            </div>
-        )
-    } else if (error) {
-        return (
-            <div className="loading-error">
-                <h2>Something went wrong...</h2>
-            </div >
-        )
-    }
     return (
         <>
             <div className="container">
@@ -68,32 +54,54 @@ const ArchivesPage = ({ planets, loading, error }) => {
                 </nav>
             </div>
             <div className="container galaxy-container">
-                <div className="galaxy-bg"></div>
-                <div className="row no-gutters d-flex justify-content-center">
-                    <div className="my-2 d-flex flex-column align-items-center">
-                        <h1 className="planet-list__title">Search the Galactic Archives!</h1>
-                        <p>Currently there are {planets.length} planets, moons, and asteroids in the archives</p>
-                        <p>The total humanoid population of the galaxy is approximately {(populationSum / 1000000000000).toFixed(3)} trillion</p>
-
-                        <SearchForm
-                            value={value}
-                            suggestions={suggestions}
-                            change={event => setValue(event.target.value)}
-                            planets={planets}
-                        />
-
-                        <PaginationNav
-                            postsPerPage={postsPerPage}
-                            totalPosts={planets.length}
-                            paginate={paginate}
-                        />
-                        <PaginationList
-                            planets={currentPlanets}
-                        />
+                <div>
+                    <div className="galaxy-bg"></div>
+                    <div className="row no-gutters d-flex justify-content-center">
+                        {error
+                            ?
+                            <div className="my-2">
+                                <h2>Something went wrong...</h2>
+                            </div >
+                            :
+                            <div className="d-flex flex-column align-items-center">
+                                <h1 className="planet-list__title">Search the Galactic Archives!</h1>
+                                {loading
+                                    ?
+                                    <div className="spinner-border" role="status">
+                                        <span className="sr-only">Loading...</span>
+                                    </div>
+                                    :
+                                    <div className="d-flex flex-column align-items-center">
+                                        <p>Currently there are {planets.length} planets, moons, and asteroids in the archives</p>
+                                        <p>The total humanoid population of these objects is approximately {(populationSum / 1000000000000).toFixed(3)} trillion</p>
+                                    </div>
+                                }
+                            </div>
+                        }
+                    </div>
+                    <div className="row no-gutters mt-5 d-flex justify-content-around">
+                        <div className="col-md-5">
+                            <SearchForm
+                                value={value}
+                                suggestions={suggestions}
+                                change={event => setValue(event.target.value)}
+                                planets={planets}
+                            />
+                        </div>
+                        <div className="col-md-5">
+                            <PaginationNav
+                                postsPerPage={postsPerPage}
+                                totalPosts={planets.length}
+                                paginate={paginate}
+                            />
+                            <PaginationList
+                                planets={currentPlanets}
+                            />
+                        </div>
                     </div>
                 </div>
-
             </div>
+
         </>
     );
 }
