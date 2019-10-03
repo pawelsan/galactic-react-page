@@ -1,7 +1,7 @@
 import React from 'react';
 import PlanetListItem from '../components/PlanetListItem';
 
-const PaginationList = ({ planets }) => {
+const PlanetList = ({ planets }) => {
 
     return (
         <ul className="planet-list">
@@ -14,4 +14,4 @@ const PaginationList = ({ planets }) => {
     );
 }
 
-export default PaginationList;
+export default PlanetList;

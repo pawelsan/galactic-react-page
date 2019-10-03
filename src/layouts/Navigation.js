@@ -32,8 +32,8 @@ const Navigation = () => {
                 <span className="ml-3">
                     PH's Galactic Archives
                     </span>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse justify-content-end" id="navbarMenu">
                     <ul className="navbar-nav navbar-right">

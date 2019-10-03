@@ -43,7 +43,7 @@ const App = () => {
         fetchPlanets();
 
     }, []);
-    console.log(planets)
+
     return (
 
         <Router>

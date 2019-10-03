@@ -13,7 +13,7 @@ import PlanetPage from '../pages/PlanetPage.js';
 const Main = ({ planets, loading, error }) => {
 
     return (
-        <>
+        <main>
             <Switch>
                 <Route path="/" exact render={() => (
                     <Home
@@ -35,7 +35,7 @@ const Main = ({ planets, loading, error }) => {
                 <Route path="/disclaimer" component={Disclaimer} />
                 <Route component={ErrorPage} />
             </Switch>
-        </>
+        </main>
     );
 }
 

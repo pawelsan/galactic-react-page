@@ -1,7 +1,6 @@
 import React from 'react';
 import { Prompt } from 'react-router-dom'
 
-
 const encode = (data) => {
     return Object.keys(data)
         .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
@@ -40,16 +39,10 @@ class ContactForm extends React.Component {
         return (
             <>
                 <div className="col py-5">
-
                     <h1>Contact form </h1>
-
-
                     <form
-                        onSubmit={this.handleSubmit}
-                    >
-                        <input type="hidden" name="form-name" value="contact"
-
-                        />
+                        onSubmit={this.handleSubmit}>
+                        <input type="hidden" name="form-name" value="contact" />
                         <div class="messages"></div>
                         <div class="controls">
                             <div className="row">
@@ -92,10 +85,8 @@ class ContactForm extends React.Component {
                     <Prompt
                         when={this.state.message}
                         message="The form has not been sent. If you leave, your input will be lost" />
-
                 </div>
             </>
-
         );
     }
 }

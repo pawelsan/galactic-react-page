@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import PaginationList from '../components/PaginationList';
+import PlanetList from '../components/PlanetList';
 import PaginationNav from '../components/PaginationNav';
 import SearchForm from '../components/SearchForm';
 import '../styles/PlanetList.scss';
@@ -16,12 +16,12 @@ const ArchivesPage = ({ planets, loading, error }) => {
     //Get search suggestion list
     const suggestionValue = value.trim().toUpperCase();
     const suggestionLength = suggestionValue.length;
-    const suggestions = suggestionLength === 0 ? [] : planets.filter(planet => planet.name.toUpperCase().slice(0, suggestionLength) === suggestionValue);
+    const suggestions = planets.filter(planet => planet.name.toUpperCase().slice(0, suggestionLength) === suggestionValue);
 
     //Get planets per each part of the long list
     const indexOfLastPlanet = currentPage * postsPerPage;
     const indexOfFirstPlanet = indexOfLastPlanet - postsPerPage;
-    const currentPlanets = planets.slice(indexOfFirstPlanet, indexOfLastPlanet)
+    const currentPlanets = !suggestions.toString() ? planets.slice(indexOfFirstPlanet, indexOfLastPlanet) : suggestions.slice(indexOfFirstPlanet, indexOfLastPlanet)
 
     //Change parts of the long list
     const paginate = (pageNumber) => {
@@ -79,22 +79,21 @@ const ArchivesPage = ({ planets, loading, error }) => {
                             </div>
                         }
                     </div>
-                    <div className="row no-gutters mt-5 d-flex justify-content-around">
-                        <div className="col-md-5">
+                    <div className="row no-gutters mt-5 d-flex flex-column align-items-center justify-content-around">
+                        <div className="col-md-6">
                             <SearchForm
                                 value={value}
                                 suggestions={suggestions}
                                 change={event => setValue(event.target.value)}
                                 planets={planets}
+                                loading={loading}
                             />
-                        </div>
-                        <div className="col-md-5">
                             <PaginationNav
                                 postsPerPage={postsPerPage}
-                                totalPosts={planets.length}
+                                totalPosts={!suggestions.toString() ? planets.length : suggestions.length}
                                 paginate={paginate}
                             />
-                            <PaginationList
+                            <PlanetList
                                 planets={currentPlanets}
                             />
                         </div>
