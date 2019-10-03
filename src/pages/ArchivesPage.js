@@ -53,7 +53,7 @@ const ArchivesPage = ({ planets, loading, error }) => {
                     </ol>
                 </nav>
             </div>
-            <div className="container galaxy-container">
+            <div className="container galaxy-container galaxy-container-archives">
                 <div>
                     <div className="galaxy-bg"></div>
                     <div className="row no-gutters d-flex justify-content-center">
