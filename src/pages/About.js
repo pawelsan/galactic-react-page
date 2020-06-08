@@ -38,9 +38,9 @@ const About = () => {
                             <div className="about__main">
                                 <p>It took me a while before realizing that web development is <em>the</em> field that I am passionate about and a career path that I want to follow.</p>
                                 <p>For almost ten years, I have been working as an analyst, mainly in public sector, but since recently also in a multinational company.</p>
-                                <p>Since last September, I have started learning the foundations of web development, devoting most of my free time to this end. I have been using a variety of sources including online courses from Udemy and Frontend Masters.</p>
-                                <p>This project presents my level of knowledge so far. It is a SPA made with React (including simple Hooks) and React Router. It fetches public API using Axios. For the styling purposes, I have used Bootstrap 4, customizsed with a help of SCSS.</p>
-                                <p>I hope that this website would help me in achieving my primary goal, findig my first job in web development. If not, I do hope that <em>at the very least</em> you will enjoy references to the Star Wars universe.</p>
+                                <p>Since September 2018, I have been learning web development, devoting most of my free time to this end. I have been using a variety of sources including online courses from Udemy and Frontend Masters.</p>
+                                <p>This project presents my level of knowledge in mid 2019. It is a SPA made with React (including simple Hooks) and React Router. It fetches public API using Axios. For the styling purposes, I have used Bootstrap 4, customizsed with a help of SCSS.</p>
+                                <p>I do hope that you will enjoy references to the Star Wars universe.</p>
                             </div>
                             <p className="about__footer">Please feel free to contact me using the contact form or through the social media listed below.</p>
                         </div>
