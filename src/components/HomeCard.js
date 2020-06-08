@@ -9,7 +9,7 @@ const HomeCard = ({ planets, loading }) => {
     return (
         <div className="row">
             {planets.map(planet => (
-                <div className="col-md-4">
+                <div className="col-md-4" key={planet.name}>
                     <Link
                         className="d-block text-color4 text-decoration-none"
                         role="button"

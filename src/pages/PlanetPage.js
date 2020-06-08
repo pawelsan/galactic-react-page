@@ -16,22 +16,20 @@ const PlanetPage = (props) => {
                 <nav aria-label="breadcrumb">
                     <ol className="breadcrumb">
                         <li
-                            key='Home'
                             className="breadcrumb-item">
                             <NavLink
                                 to='/'
-                                exact='true'
+                                exact
                                 className="text-color1"
                                 activeClassName="active" >
                                 Home
                             </NavLink>
                         </li>
                         <li
-                            key='Home'
                             className="breadcrumb-item">
                             <NavLink
                                 to='/planets'
-                                exact='true'
+                                exact
                                 className="text-color1"
                                 activeClassName="active" >
                                 Galactic Archives

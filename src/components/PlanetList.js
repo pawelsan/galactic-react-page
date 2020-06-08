@@ -7,6 +7,7 @@ const PlanetList = ({ planets }) => {
         <ul className="planet-list">
             {planets.map(planet =>
                 <PlanetListItem
+                    key={planet.name}
                     planet={planet}
                 />
             )}

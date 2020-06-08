@@ -10,13 +10,16 @@ import '../styles/PlanetList.scss';
 const ArchivesPage = ({ planets, loading, error }) => {
     const [value, setValue] = useState('');
     const [currentPage, setCurrentPage] = useState(1);
+    const [postsPerPage, setPostsPerPage] = useState(10);
 
-    const postsPerPage = 10;
+    // let postsPerPage = 10;
 
     //Get search suggestion list
     const suggestionValue = value.trim().toUpperCase();
     const suggestionLength = suggestionValue.length;
     const suggestions = planets.filter(planet => planet.name.toUpperCase().slice(0, suggestionLength) === suggestionValue);
+    // suggestions.toString() ? postsPerPage = 60 : postsPerPage = 10;
+    // value || suggestions.toString() ? postsPerPage = 60 : postsPerPage = 10
 
     //Get planets per each part of the long list
     const indexOfLastPlanet = currentPage * postsPerPage;
@@ -27,6 +30,12 @@ const ArchivesPage = ({ planets, loading, error }) => {
     const paginate = (pageNumber) => {
         setCurrentPage(pageNumber);
     }
+
+    const handlePostsPerPage = () => {
+        setPostsPerPage(10)
+    }
+
+    //Provide data for the page header
     const add = (a, b) => a + b;
     const populationList = planets.map(planet => planet.population * 1).filter(population => !isNaN(population)).sort()
     const populationSum = populationList.reduce(add, 0);
@@ -41,7 +50,7 @@ const ArchivesPage = ({ planets, loading, error }) => {
                             className="breadcrumb-item">
                             <NavLink
                                 to='/'
-                                exact='true'
+                                exact
                                 className="text-color1"
                                 activeClassName="active" >
                                 Home
@@ -87,14 +96,15 @@ const ArchivesPage = ({ planets, loading, error }) => {
                                 change={event => setValue(event.target.value)}
                                 planets={planets}
                                 loading={loading}
+                                handlePostsPerPage={handlePostsPerPage}
+                            />
+                            <PlanetList
+                                planets={currentPlanets}
                             />
                             <PaginationNav
                                 postsPerPage={postsPerPage}
                                 totalPosts={!suggestions.toString() ? planets.length : suggestions.length}
                                 paginate={paginate}
-                            />
-                            <PlanetList
-                                planets={currentPlanets}
                             />
                         </div>
                     </div>

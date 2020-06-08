@@ -43,8 +43,8 @@ class ContactForm extends React.Component {
                     <form
                         onSubmit={this.handleSubmit}>
                         <input type="hidden" name="form-name" value="contact" />
-                        <div class="messages"></div>
-                        <div class="controls">
+                        <div className="messages"></div>
+                        <div className="controls">
                             <div className="row">
                                 <div className="col-md-6">
                                     <div className="form-group">
@@ -70,7 +70,7 @@ class ContactForm extends React.Component {
                                     </div>
                                 </div>
                                 <div className="col-md-12">
-                                    <input type="submit" class="btn btn-color1 text-color4 btn-send" value="Send message" />
+                                    <input type="submit" className="btn btn-color1 text-color4 btn-send" value="Send message" />
                                 </div>
                             </div>
                             <div className="row">
@@ -83,7 +83,7 @@ class ContactForm extends React.Component {
                         </div>
                     </form>
                     <Prompt
-                        when={this.state.message}
+                        when={this.state.message === true}
                         message="The form has not been sent. If you leave, your input will be lost" />
                 </div>
             </>
