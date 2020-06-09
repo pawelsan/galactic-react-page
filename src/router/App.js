@@ -61,7 +61,7 @@ const App = () => {
         }
         fetchPlanets();
 
-    }, [planets]);
+    }, []);
 
     return (
 
