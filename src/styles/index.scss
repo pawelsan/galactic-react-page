@@ -1,14 +1,21 @@
-@import 'Variables.scss';
-@import 'node_modules/bootstrap/scss/bootstrap';
+@import "Variables.scss";
+@import "node_modules/bootstrap/scss/bootstrap";
 
 * {
   padding: 0;
   margin: 0;
-  box-sizing: border-box
+  box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   overflow-x: hidden;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .form-control:focus {
@@ -16,8 +23,10 @@ html, body {
   box-shadow: inset 0 2px 2px rgba(40, 167, 69, 0.075), 0 0 8px $color3;
 }
 
-.list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
-  z-index:2;
+.list-group-item.active,
+.list-group-item.active:hover,
+.list-group-item.active:focus {
+  z-index: 2;
   color: $color2;
   background-color: $color4;
   border-color: $color3;
