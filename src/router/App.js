@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect, useCallback } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
+import PlanetContext from "../store/planet-context";
 import "bootstrap/dist/js/bootstrap";
 import Navigation from "../layouts/Navigation";
 import Main from "../layouts/Main";
@@ -24,25 +25,15 @@ const App = () => {
     fetchRequest();
   }, [fetchRequest]);
 
-  let content = <p>Found no planets</p>;
-
-  if (planets.length > 0) {
-    content = <Main planets={planets} loading={isLoading} error={error} />;
-  }
-
-  if (error) {
-    content = <p>{error}</p>;
-  }
-
-  if (isLoading) {
-    content = <p>Loading...</p>;
-  }
-
   return (
     <Router>
-      <Navigation />
-      {content}
-      <Footer />
+      <PlanetContext.Provider
+        value={{ planets: planets, loading: isLoading, error: error }}
+      >
+        <Navigation />
+        <Main />
+        <Footer />
+      </PlanetContext.Provider>
     </Router>
   );
 };

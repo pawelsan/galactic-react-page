@@ -6,7 +6,7 @@ const useFetchData = (transformData) => {
 
   const fetchRequest = useCallback(async () => {
     setIsLoading(true);
-    setError(null);
+    setError("");
 
     let allPlanetArray = [];
 
