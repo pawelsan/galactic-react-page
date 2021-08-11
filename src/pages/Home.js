@@ -1,22 +1,38 @@
-import React, { useContext } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import Jumbotron from "../components/Jumbotron";
+import CheckboxContainer from "../components/CheckboxContainer";
 import HomeCard from "../components/HomeCard";
 import PlanetContext from "../store/planet-context";
 
 const Home = () => {
   const { planets, loading, error } = useContext(PlanetContext);
+  const [checkedTerrains, setCheckedTerrains] = useState(["desert"]);
 
-  // I am creating separate arrays for particular planets in order to pass them as props to the Home Card components situated in respective card tabs further below
-  const desertPlanets = planets.filter((planet) =>
-    ["Geonosis", "Tatooine", "Tund"].includes(planet.name)
+  const handleCheckedTerrains = (e) => {
+    const clickedTerrain = e.target.value;
+    setCheckedTerrains((prevTerrainList) => {
+      if (prevTerrainList.includes(clickedTerrain)) {
+        return prevTerrainList.filter((item) => item !== clickedTerrain);
+      } else {
+        return [...prevTerrainList, clickedTerrain];
+      }
+    });
+  };
+
+  console.log(
+    planets.filter((planet) => planet.terrain.includes(checkedTerrains[0]))
   );
-  const urbanPlanets = planets.filter((planet) =>
-    ["Coruscant", "Corellia", "Skako"].includes(planet.name)
-  );
-  const forestPlanets = planets.filter((planet) =>
-    ["Endor", "Dagobah", "Rodia"].includes(planet.name)
-  );
+
+  // const planetCardList = (
+  //   <HomeCard
+  //     planets={planets.filter((planet) =>
+  //       planet.terrain.includes(checkedTerrains[0])
+  //     )}
+  //   />
+  // );
+
+  // console.log(planetCardList);
 
   return (
     <>
@@ -29,7 +45,11 @@ const Home = () => {
         </nav>
         <main className="row">
           <div className="col-md-3 mt-2">
-            <div className="list-group" id="list-tab" role="tablist">
+            <CheckboxContainer
+              checkedTerrains={checkedTerrains}
+              handleCheckedTerrains={handleCheckedTerrains}
+            />
+            {/* <div className="list-group" id="list-tab" role="tablist">
               <a
                 className="list-group-item list-group-item-action active"
                 id="list-deserts-list"
@@ -60,7 +80,7 @@ const Home = () => {
               >
                 Forests
               </a>
-            </div>
+            </div> */}
           </div>
           <div className="col-md-9">
             {error ? (
@@ -69,38 +89,45 @@ const Home = () => {
               </div>
             ) : (
               <div className="d-flex justify-content-center">
-                {loading ? (
-                  <div className="spinner-border mt-3" role="status">
-                    <span className="sr-only">Loading...</span>
-                  </div>
-                ) : (
-                  <div className="row tab-content" id="nav-tabContent">
-                    <div
-                      className="tab-pane fade show active"
-                      id="list-deserts"
-                      role="tabpanel"
-                      aria-labelledby="list-deserts-list"
-                    >
-                      <HomeCard planets={desertPlanets} />
+                {
+                  loading ? (
+                    <div className="spinner-border mt-3" role="status">
+                      <span className="sr-only">Loading...</span>
                     </div>
-                    <div
-                      className="tab-pane fade"
-                      id="list-urban"
-                      role="tabpanel"
-                      aria-labelledby="list-urban-list"
-                    >
-                      <HomeCard planets={urbanPlanets} />
-                    </div>
-                    <div
-                      className="tab-pane fade"
-                      id="list-forests"
-                      role="tabpanel"
-                      aria-labelledby="list-forests-list"
-                    >
-                      <HomeCard planets={forestPlanets} />
-                    </div>
-                  </div>
-                )}
+                  ) : (
+                    <HomeCard
+                      planets={planets.filter((planet) =>
+                        planet.terrain.includes(checkedTerrains[0])
+                      )}
+                    />
+                  )
+                  // <div className="row tab-content" id="nav-tabContent">
+                  //   <div
+                  //     className="tab-pane fade show active"
+                  //     id="list-deserts"
+                  //     role="tabpanel"
+                  //     aria-labelledby="list-deserts-list"
+                  //   >
+                  //     <HomeCard planets={desertPlanets} />
+                  //   </div>
+                  //   <div
+                  //     className="tab-pane fade"
+                  //     id="list-urban"
+                  //     role="tabpanel"
+                  //     aria-labelledby="list-urban-list"
+                  //   >
+                  //     <HomeCard planets={urbanPlanets} />
+                  //   </div>
+                  //   <div
+                  //     className="tab-pane fade"
+                  //     id="list-forests"
+                  //     role="tabpanel"
+                  //     aria-labelledby="list-forests-list"
+                  //   >
+                  //     <HomeCard planets={forestPlanets} />
+                  //   </div>
+                  // </div>
+                }
               </div>
             )}
             <div className="row no-gutters d-flex justify-content-center">
