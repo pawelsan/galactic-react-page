@@ -33,7 +33,11 @@ const Home = () => {
           checkList.push(false);
         }
       }
-      if (!checkList.includes(false) && !tempList.includes(planet)) {
+      if (
+        checkList.length &&
+        !checkList.includes(false) &&
+        !tempList.includes(planet)
+      ) {
         tempList.push(planet);
       }
       if (checkList.includes(false) && tempList.includes(planet)) {
