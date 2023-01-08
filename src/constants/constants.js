@@ -1,0 +1,25 @@
+export const URL = 'https://swapi.dev/api/planets/?page='
+
+export const terrainPictures = [
+	'airless asteroid',
+	'barren',
+	'cityscape',
+	'cloudsea',
+	'desert',
+	'deserts',
+	'forests',
+	'gas giant',
+	'grass',
+	'jungles',
+	'lakes',
+	'mountain ranges',
+	'mountains',
+	'ocean',
+	'rainforests',
+	'rock',
+	'rocky',
+	'savanna',
+	'swamp',
+	'urban',
+	'volcanoes',
+]

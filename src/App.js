@@ -1,21 +1,6 @@
-import React from "react";
-import { BrowserRouter as Router } from "react-router-dom";
-import PlanetProvider from "./store/PlanetProvider";
-import "bootstrap/dist/js/bootstrap";
-import Navigation from "./layouts/Navigation";
-import Main from "./layouts/Main";
-import Footer from "./layouts/Footer";
+import RouteProvider from './routes.js/RouterProvider'
 
-const App = () => {
-  return (
-    <Router>
-      <PlanetProvider>
-        <Navigation />
-        <Main />
-        <Footer />
-      </PlanetProvider>
-    </Router>
-  );
-};
-
-export default App;
+function App() {
+	return <RouteProvider />
+}
+export default App
