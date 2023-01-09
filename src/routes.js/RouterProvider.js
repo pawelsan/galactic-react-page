@@ -3,7 +3,6 @@ import {
 	createBrowserRouter,
 	createRoutesFromElements,
 	Route,
-	Link,
 } from 'react-router-dom'
 import RootLayout from '../components/RootLayout'
 import HomePage from '../pages/HomePage'
@@ -24,17 +23,9 @@ const router = createBrowserRouter(
 			id={'root'}
 		>
 			<Route index element={<HomePage />} />
-			<Route
-				path="/planets"
-				element={<PlanetsPage />}
-				handle={{ crumb: () => <Link to="/">Home</Link> }}
-			>
+			<Route path="/planets" element={<PlanetsPage />}>
 				<Route index element={<PlanetsList />} />
-				<Route
-					path=":id"
-					element={<PlanetPage />}
-					handle={{ crumb: () => <Link to="/planets">Planets</Link> }}
-				/>
+				<Route path=":id" element={<PlanetPage />} />
 			</Route>
 			<Route path="/about" element={<About />} />
 		</Route>

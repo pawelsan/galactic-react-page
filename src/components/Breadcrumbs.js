@@ -1,22 +1,21 @@
-import { useMatches } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import { useBreadcrumbs } from '../hooks/useBreadcrumbs'
+import { capitalize } from '../helpers/capitalize'
 
 export function Breadcrumbs() {
-	const matches = useMatches()
-	const crumbs = matches
-		// first get rid of any matches that don't have handle and crumb
-		.filter((match) => Boolean(match.handle?.crumb))
-		// now map them into an array of elements, passing the loader
-		// data to each one
-		.map((match) => match.handle.crumb(match.data))
+	const [crumbs, currentCrumb] = useBreadcrumbs()
 
 	return (
 		<div>
-			{crumbs.map((crumb, index) => (
-				<>
-					{index !== 0 && <span>/</span>}
-					<span key={index}>{crumb}</span>
-				</>
-			))}
+			{crumbs.length
+				? crumbs.map((crumb, index) => (
+						<span key={index}>
+							<Link to={crumb.path}>{capitalize(crumb.name)}</Link>
+							{' / '}
+						</span>
+				  ))
+				: null}
+			<span>{capitalize(currentCrumb.name).replace('-', ' ')}</span>
 		</div>
 	)
 }

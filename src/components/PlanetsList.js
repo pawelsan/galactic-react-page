@@ -8,7 +8,7 @@ function PlanetsList() {
 			<ul>
 				{planets.map((planet) => (
 					<li key={planet.name}>
-						<Link to={planet.name}>
+						<Link to={planet.name.replace(' ', '-')}>
 							<h2>{planet.name}</h2>
 						</Link>
 					</li>
