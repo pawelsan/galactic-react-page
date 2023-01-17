@@ -1,4 +1,5 @@
 import { getAllPlanets } from '../api/api'
+import { defer } from 'react-router-dom'
 
 function transformPlanetData(planetData) {
 	return planetData
@@ -6,7 +7,7 @@ function transformPlanetData(planetData) {
 		.sort((a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0))
 }
 
-export async function loadPlanetData() {
+async function getPlanetData() {
 	if (localStorage.getItem('SWAPI_DATA') === null) {
 		const planetData = await getAllPlanets()
 		const transformedPlanetData = transformPlanetData(planetData)
@@ -14,4 +15,15 @@ export async function loadPlanetData() {
 		return transformedPlanetData
 	}
 	return JSON.parse(localStorage.getItem('SWAPI_DATA'))
+}
+
+export async function loadPlanetData() {
+	const planetDataPromise = getPlanetData()
+
+	return defer({
+		planetData:
+			localStorage.getItem('SWAPI_DATA') === null
+				? planetDataPromise
+				: await planetDataPromise,
+	})
 }

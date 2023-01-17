@@ -1,18 +1,16 @@
 import { useRouteLoaderData } from 'react-router-dom'
-import { useRandomPlanetChoice } from '../hooks/useRandomPlanetChoice'
+import SuspenseAwaitWrapper from '../components/SuspenseAwaitWrapper'
+import RandomPlanetChoice from '../components/RandomPlanetChoice'
 
 function HomePage() {
-	const planets = useRouteLoaderData('root')
-	const pickedPlanets = useRandomPlanetChoice(planets)
+	const data = useRouteLoaderData('root')
 
 	return (
 		<>
 			<h1>HomePage</h1>
-			<ul>
-				{pickedPlanets.map((planet, index) => (
-					<li key={index}>{planet.name}</li>
-				))}
-			</ul>
+			<SuspenseAwaitWrapper dataToResolve={data.planetData}>
+				<RandomPlanetChoice />
+			</SuspenseAwaitWrapper>
 		</>
 	)
 }

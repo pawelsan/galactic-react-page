@@ -1,6 +1,6 @@
-import { useRouteLoaderData } from 'react-router-dom'
+import { useAsyncValue } from 'react-router-dom'
 
 export function useSelectedPlanetData(id) {
-	const planets = useRouteLoaderData('root')
+	const planets = useAsyncValue()
 	return planets.find((planet) => planet.name === id.replace('-', ' '))
 }
