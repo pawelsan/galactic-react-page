@@ -1,13 +1,23 @@
 import { Suspense } from 'react'
 import { Await } from 'react-router'
+import { Box, LinearProgress, Typography } from '@mui/material'
 
 function SuspenseAwaitWrapper({ dataToResolve, children }) {
 	return (
-		<Suspense fallback={<p>Loading archive data...</p>}>
+		<Suspense
+			fallback={
+				<Box sx={{ width: '100%', height: '50vh' }}>
+					<Typography variant="subtitle1">Loading archive data...</Typography>
+					<LinearProgress />
+				</Box>
+			}
+		>
 			<Await
 				resolve={dataToResolve}
 				errorElement={
-					<p>Error loading archives... Please try again later...</p>
+					<Typography variant="subtitle1">
+						Error loading archives... Please try again later...
+					</Typography>
 				}
 			>
 				{children}

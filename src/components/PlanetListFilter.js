@@ -1,5 +1,7 @@
+import { Typography } from '@mui/material'
+
 function PlanetListFilter() {
-	return <div>PlanetListFilter</div>
+	return <Typography variant="h2">Search the Galactic Archives!</Typography>
 }
 
 export default PlanetListFilter

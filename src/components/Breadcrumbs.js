@@ -1,4 +1,5 @@
-import { Link } from 'react-router-dom'
+import { Link as RouterLink } from 'react-router-dom'
+import { Breadcrumbs as MuiBreadCrumbs, Link } from '@mui/material'
 import { useBreadcrumbs } from '../hooks/useBreadcrumbs'
 import { capitalize } from '../helpers/capitalize'
 
@@ -6,16 +7,21 @@ export function Breadcrumbs() {
 	const [crumbs, currentCrumb] = useBreadcrumbs()
 
 	return (
-		<div>
+		<MuiBreadCrumbs>
 			{crumbs.length
 				? crumbs.map((crumb, index) => (
-						<span key={index}>
-							<Link to={crumb.path}>{capitalize(crumb.name)}</Link>
-							{' / '}
-						</span>
+						<Link
+							component={RouterLink}
+							key={index}
+							to={crumb.path}
+							underline="hover"
+							color="inherit"
+						>
+							{capitalize(crumb.name)}
+						</Link>
 				  ))
 				: null}
 			<span>{capitalize(currentCrumb.name).replace('-', ' ')}</span>
-		</div>
+		</MuiBreadCrumbs>
 	)
 }
