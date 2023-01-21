@@ -1,21 +1,24 @@
-import { Outlet } from 'react-router-dom'
-import Navigation from './Navigation'
-import { Breadcrumbs } from './Breadcrumbs'
+import { Outlet, useLocation } from 'react-router-dom'
 import { Box, Container, CssBaseline } from '@mui/material'
+import Navigation from './Navigation'
+import Jumbotron from './Jumbotron'
+import { Breadcrumbs } from './Breadcrumbs'
 
 function RootLayout() {
+	const { pathname } = useLocation()
 	return (
 		<>
 			<CssBaseline />
-			<Container maxWidth="xl">
-				<Box sx={{ bgcolor: '#cfe8fc' }}>
-					<Navigation />
+			<Box sx={{ bgcolor: 'bgwhite.main' }}>
+				<Navigation />
+				{pathname === '/' && <Jumbotron />}
+				<Container>
 					<Breadcrumbs />
 					<main>
 						<Outlet />
 					</main>
-				</Box>
-			</Container>
+				</Container>
+			</Box>
 		</>
 	)
 }

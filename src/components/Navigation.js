@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom'
 import {
 	AppBar,
 	Box,
+	Container,
 	CssBaseline,
 	Divider,
 	Drawer,
@@ -42,10 +43,25 @@ function Navigation() {
 		</Box>
 	)
 	return (
-		<Box sx={{ display: 'flex' }}>
+		<Container sx={{ display: 'flex', padding: '0.5rem' }}>
 			<CssBaseline />
-			<AppBar component="nav" position="static">
-				<Toolbar>
+			<AppBar
+				component="nav"
+				position="static"
+				sx={{
+					bgcolor: 'white',
+					boxShadow: 'none',
+				}}
+			>
+				<Toolbar
+					sx={{
+						width: {
+							xs: '100%',
+							bgcolor: 'white',
+							justifyContent: 'space-between',
+						},
+					}}
+				>
 					<IconButton
 						color="inherit"
 						aria-label="open drawer"
@@ -53,12 +69,23 @@ function Navigation() {
 						onClick={handleDrawerToggle}
 						sx={{ mr: 2, display: { sm: 'none' } }}
 					>
-						<MenuIcon />
+						<MenuIcon color="grey" />
 					</IconButton>
+					<Box
+						component="img"
+						sx={{ width: '90px' }}
+						src={require(`../images/logo.png`)}
+						alt="plogo"
+					/>
 					<Typography
-						variant="h6"
+						variant="subtitle1"
 						component="div"
-						sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
+						color="grey.dark"
+						sx={{
+							flexGrow: 1,
+							display: { xs: 'none', sm: 'block' },
+							marginLeft: '1rem',
+						}}
 					>
 						PH's Galactic Archives
 					</Typography>
@@ -68,7 +95,7 @@ function Navigation() {
 								component={NavLink}
 								key={item.to}
 								to={item.to}
-								variant="contained"
+								sx={{ color: 'black' }}
 							>
 								{item.name}
 							</Button>
@@ -91,7 +118,7 @@ function Navigation() {
 					{drawer}
 				</Drawer>
 			</Box>
-		</Box>
+		</Container>
 	)
 }
 
