@@ -1,7 +1,7 @@
 import { Outlet, useRouteLoaderData } from 'react-router-dom'
 import SuspenseAwaitWrapper from '../components/SuspenseAwaitWrapper'
 
-function PlanetsPage() {
+function ArchivesPages() {
 	const data = useRouteLoaderData('root')
 
 	return (
@@ -11,4 +11,4 @@ function PlanetsPage() {
 	)
 }
 
-export default PlanetsPage
+export default ArchivesPages

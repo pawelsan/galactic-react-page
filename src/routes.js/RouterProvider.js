@@ -6,7 +6,7 @@ import {
 } from 'react-router-dom'
 import RootLayout from '../components/RootLayout'
 import HomePage from '../pages/HomePage'
-import PlanetsPage from '../pages/PlanetsPage'
+import ArchivesPages from '../pages/ArchivesPages'
 import PlanetsList from '../components/PlanetsList'
 import PlanetPage from '../pages/PlanetPage'
 import About from '../pages/About'
@@ -23,7 +23,7 @@ const router = createBrowserRouter(
 			id={'root'}
 		>
 			<Route index element={<HomePage />} />
-			<Route path="/planets" element={<PlanetsPage />}>
+			<Route path="/planets" element={<ArchivesPages />}>
 				<Route index element={<PlanetsList />} />
 				<Route path=":id" element={<PlanetPage />} />
 			</Route>
