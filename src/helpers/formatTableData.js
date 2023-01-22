@@ -24,15 +24,20 @@ export function formatTableValues(key, value) {
 			}
 			if (value >= 1000) {
 				return `${(value / 1000).toLocaleString('en-US')} thousand`
-			} else {
-				return `${value.toLocaleString('en-US')}`
 			}
+			return `${value.toLocaleString('en-US')}`
 		case 'surface_water':
 			return `${value}%`
 		case 'total_surface':
 			return `${(value / 1000000).toLocaleString('en-US')} million sq km`
 		case 'population_density':
-			return `${value.toLocaleString('en-US')} people per sq km`
+			if (value > 1) {
+				return `${value.toLocaleString('en-US')} people per sq km`
+			}
+			if (value === 1) {
+				return `${value.toLocaleString('en-US')} person per sq km`
+			}
+			return `Less than 1 person per sq km`
 		default:
 			return value
 	}

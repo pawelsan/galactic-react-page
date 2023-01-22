@@ -14,7 +14,7 @@ export function useSelectedPlanetData(id) {
 
 	if (planet.diameter)
 		planet.total_surface = Math.floor(4 * Math.PI * (planet.diameter / 2) ** 2)
-	if (planet.diameter && planet.population) {
+	if (planet.diameter && planet.diameter !== '0' && planet.population) {
 		planet.population_density = (
 			planet.population / Math.floor(4 * Math.PI * (planet.diameter / 2) ** 2)
 		).toFixed(0)

@@ -15,7 +15,6 @@ function PlanetsList() {
 	const planets = useAsyncValue()
 	const [page, setPage] = useState(1)
 	const handleChange = (e, value) => {
-		console.log(value)
 		setPage(value)
 	}
 	const postsPerPage = 10
