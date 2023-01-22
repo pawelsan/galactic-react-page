@@ -26,16 +26,24 @@ function Navigation() {
 	}
 
 	const drawer = (
-		<Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-			<Typography variant="h6" sx={{ my: 2 }}>
+		<Box
+			onClick={handleDrawerToggle}
+			sx={{ textAlign: 'center', height: 'auto' }}
+			bgcolor="sand.light"
+		>
+			<Typography variant="subtitle1" sx={{ m: 2 }}>
 				{title}
 			</Typography>
 			<Divider />
 			<List>
 				{navItems.map((item) => (
 					<ListItem key={item.to}>
-						<ListItemButton sx={{ textAlign: 'center' }}>
-							<NavLink to={item.to}>{item.name}</NavLink>
+						<ListItemButton
+							component={NavLink}
+							to={item.to}
+							sx={{ justifyContent: 'center', px: 0 }}
+						>
+							{item.name}
 						</ListItemButton>
 					</ListItem>
 				))}
@@ -55,11 +63,8 @@ function Navigation() {
 			>
 				<Toolbar
 					sx={{
-						width: {
-							xs: '100%',
-							bgcolor: 'white',
-							justifyContent: 'space-between',
-						},
+						flexDirection: { xs: 'row-reverse', sm: 'row' },
+						justifyContent: 'space-between',
 					}}
 				>
 					<IconButton
@@ -112,7 +117,7 @@ function Navigation() {
 						keepMounted: true, // Better open performance on mobile.
 					}}
 					sx={{
-						display: { xs: 'block', sm: 'none' },
+						display: { xs: 'block', sm: 'none', height: 'auto' },
 					}}
 				>
 					{drawer}
