@@ -27,3 +27,14 @@ export async function loadPlanetData() {
 				: await planetDataPromise,
 	})
 }
+
+export function filterPlanetsOnInputChange(inputValue, planets) {
+	//Get search suggestion list
+	const suggestionValue = inputValue.trim().toUpperCase()
+	const suggestionLength = suggestionValue.length
+	const filteredPlanets = planets.filter(
+		(planet) =>
+			planet.name.toUpperCase().slice(0, suggestionLength) === suggestionValue
+	)
+	return filteredPlanets
+}

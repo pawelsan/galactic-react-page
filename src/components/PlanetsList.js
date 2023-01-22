@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useState } from 'react'
 import { Link as RouterLink, useAsyncValue } from 'react-router-dom'
 import {
 	Box,
@@ -9,30 +9,36 @@ import {
 	Typography,
 } from '@mui/material'
 import PageTitle from './PageTitle'
-import PlanetListFilter from '../components/PlanetListFilter'
+import SearchBox from './SearchBox'
+import { usePagination } from '../hooks/usePagination'
+import { filterPlanetsOnInputChange } from '../helpers/planetData'
 
 function PlanetsList() {
-	const planets = useAsyncValue()
-	const [page, setPage] = useState(1)
-	const handleChange = (e, value) => {
-		setPage(value)
-	}
 	const postsPerPage = 10
-	const count = useMemo(
-		function () {
-			return Math.ceil(planets.length / postsPerPage)
-		},
-		[planets.length, postsPerPage]
+	const planets = useAsyncValue()
+	const [filteredPlanets, setFilteredPlanets] = useState(planets)
+
+	const { page, handlePageChange, count } = usePagination(
+		postsPerPage,
+		filteredPlanets
 	)
+
+	function handlePlanetSearch(searchValue) {
+		const filteredList = filterPlanetsOnInputChange(searchValue, planets)
+		setFilteredPlanets(filteredList)
+	}
 
 	const indexOfLastPlanet = page * postsPerPage
 	const indexOfFirstPlanet = indexOfLastPlanet - postsPerPage
-	const currentPlanets = planets.slice(indexOfFirstPlanet, indexOfLastPlanet)
+	const currentPlanets = filteredPlanets.slice(
+		indexOfFirstPlanet,
+		indexOfLastPlanet
+	)
 
 	return (
 		<>
 			<PageTitle>Search the Galactic Archives!</PageTitle>
-			<PlanetListFilter />
+			<SearchBox onSearch={handlePlanetSearch} />
 			<Box
 				sx={{
 					display: 'flex',
@@ -66,7 +72,7 @@ function PlanetsList() {
 					justifyContent: 'center',
 				}}
 			>
-				<Pagination count={count} page={page} onChange={handleChange} />
+				<Pagination count={count} page={page} onChange={handlePageChange} />
 			</Box>
 		</>
 	)
