@@ -1,6 +1,13 @@
 import { styled } from '@mui/material/styles'
-import { Table, TableBody, TableContainer, TableRow } from '@mui/material'
+import {
+	Table,
+	TableBody,
+	TableContainer,
+	TableRow,
+	Typography,
+} from '@mui/material'
 import TableCell, { tableCellClasses } from '@mui/material/TableCell'
+import { formatTableKeys, formatTableValues } from '../helpers/formatTableData'
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
 	[`&.${tableCellClasses.head}`]: {
@@ -29,11 +36,18 @@ function createData(name, value) {
 function PlanetDataTable({ planet }) {
 	const rows = []
 	for (const [key, value] of Object.entries(planet)) {
-		rows.push(createData(key, value))
+		const formattedTableValues = formatTableValues(key, value)
+		rows.push(createData(formatTableKeys(key), formattedTableValues))
 	}
 
 	return (
 		<TableContainer>
+			<Typography
+				variant="h6"
+				sx={{ textAlign: 'center', bgcolor: 'grey.dark', color: 'sand.light' }}
+			>
+				Known features of the celestial body:
+			</Typography>
 			<Table aria-label="planet data table">
 				<TableBody>
 					{rows.map((row) => (
