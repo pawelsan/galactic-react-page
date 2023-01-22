@@ -1,5 +1,7 @@
+import PageTitle from '../components/PageTitle'
+
 function About() {
-	return <div>About</div>
+	return <PageTitle>About me</PageTitle>
 }
 
 export default About
