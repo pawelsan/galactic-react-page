@@ -14,7 +14,7 @@ function Jumbotron() {
 				},
 				backgroundPosition: 'center',
 				backgroundSize: 'cover',
-				marginBottom: '3rem',
+				marginBottom: '1rem',
 			}}
 		>
 			<Box

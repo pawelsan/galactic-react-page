@@ -51,7 +51,7 @@ function Navigation() {
 		</Box>
 	)
 	return (
-		<Container sx={{ display: 'flex', padding: '0.5rem' }}>
+		<Container sx={{ display: 'flex', py: '0.5rem' }}>
 			<CssBaseline />
 			<AppBar
 				component="nav"
@@ -78,7 +78,7 @@ function Navigation() {
 					</IconButton>
 					<Box
 						component="img"
-						sx={{ width: '90px' }}
+						sx={{ width: '70px' }}
 						src={require(`../images/logo.png`)}
 						alt="plogo"
 					/>
