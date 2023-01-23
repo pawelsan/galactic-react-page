@@ -15,17 +15,27 @@ function RootLayout() {
 					bgcolor: 'bgwhite.main',
 					display: 'flex',
 					flexDirection: 'column',
+					height: '100vh',
 				}}
 			>
 				<Navigation />
 				{pathname === '/' && <Jumbotron />}
-				<Container>
-					<Breadcrumbs />
-					<main sx={{ flexGrow: '1' }}>
-						<Outlet />
-					</main>
-				</Container>
-				<Footer />
+				<Box
+					sx={{
+						display: 'flex',
+						flexDirection: 'column',
+						height: '100%',
+						justifyContent: 'space-between',
+					}}
+				>
+					<Container>
+						<Breadcrumbs />
+						<main>
+							<Outlet />
+						</main>
+					</Container>
+					<Footer />
+				</Box>
 			</Box>
 		</>
 	)
