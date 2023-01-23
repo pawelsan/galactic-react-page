@@ -15,14 +15,14 @@ function RandomPlanetChoice() {
 	const planets = useAsyncValue()
 	const randomPlanetChoice = useRandomPlanetChoice(planets)
 	return (
-		<List sx={{ display: 'flex' }}>
+		<List sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' } }}>
 			{randomPlanetChoice.map((planet, index) => (
 				<ListItem
 					component={RouterLink}
 					to={'planets/' + planet.name.replace(' ', '-')}
 					key={index}
 				>
-					<Card sx={{ minWidth: 275 }}>
+					<Card>
 						<CardContent>
 							<Typography
 								sx={{ fontSize: 14 }}

@@ -1,5 +1,4 @@
 import { useRouteLoaderData } from 'react-router-dom'
-import { Typography } from '@mui/material'
 import PageTitle from '../components/PageTitle'
 import SuspenseAwaitWrapper from '../components/SuspenseAwaitWrapper'
 import RandomPlanetChoice from '../components/RandomPlanetChoice'
