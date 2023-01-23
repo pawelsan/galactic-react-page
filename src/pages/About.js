@@ -1,55 +1,82 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Box, CardContent, Link, Typography } from '@mui/material'
+import PageTitle from '../components/PageTitle'
+import image from '../images/foto.jpg'
 
-const About = () => {
-    return (
-        <>
-            <div className="container">
-                <nav aria-label="breadcrumb">
-                    <ol className="breadcrumb">
-                        <li
-                            key='Home'
-                            className="breadcrumb-item">
-                            <NavLink
-                                to='/'
-                                exact='true'
-                                className="text-color1"
-                                activeClassName="active" >
-                                Home
-                            </NavLink>
-                        </li>
-                        <li className="breadcrumb-item">
-                            About
-                        </li>
-                    </ol>
-                </nav>
-            </div>
-            <div className="container">
-                <div className='row no-gutters p-3'>
-                    <div className="col-md-4 bg-color4">
-                        <div className="m-3">
-                            <img src={require(`../images/foto.png`)} alt="" className="card-img-top p-1 bg-color2" />
-                        </div>
-                    </div>
-                    <div className="col-md-8">
-                        <div className="row no-gutters p-3 bg-color4 text-lg text-color2">
-                            <h1 className="about__title">Hi! I'm Paweł. Welcome to my page!</h1>
-                            <p className="about__lead">I have made this page in order to test and present the skills and knowledge acquired by me during one year of learning web development.</p>
-                            <div className="about__main">
-                                <p>It took me a while before realizing that web development is <em>the</em> field that I am passionate about and a career path that I want to follow.</p>
-                                <p>For almost ten years, I have been working as an analyst, mainly in public sector, but since recently also in a multinational company.</p>
-                                <p>Since September 2018, I have been learning web development, devoting most of my free time to this end. I have been using a variety of sources including online courses from Udemy and Frontend Masters.</p>
-                                <p>This project presents my level of knowledge in mid 2019. It is a SPA made with React (including simple Hooks) and React Router. It fetches public API using Axios. For the styling purposes, I have used Bootstrap 4, customizsed with a help of SCSS.</p>
-                                <p>I do hope that you will enjoy references to the Star Wars universe.</p>
-                            </div>
-                            <p className="about__footer">Please feel free to contact me using the contact form or through the social media listed below.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+function About() {
+	return (
+		<>
+			<PageTitle>About me</PageTitle>
 
-        </>
-    );
+			<Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
+				<Box
+					component="img"
+					sx={{
+						border: '2px solid',
+						borderColor: 'sand.light',
+						mt: 1,
+						borderRadius: '8px',
+						width: '200px',
+					}}
+					src={image}
+					alt="my face"
+				/>
+				<Box>
+					<CardContent>
+						<Typography component="div" variant="h5">
+							Hi! I'm Paweł. Welcome to my first page!
+						</Typography>
+						<Typography
+							variant="subtitle1"
+							color="grey"
+							component="p"
+							sx={{ textAlign: 'justify', my: 1 }}
+						>
+							I made first version of this page back in 2019 in order to test
+							and present the skills and knowledge acquired by me during one
+							year of learning web development. The{' '}
+							<Link
+								href="https://github.com/pawelsan/galactic-react-page"
+								target="_blank"
+								sx={{
+									color: 'grey',
+								}}
+							>
+								current version
+							</Link>{' '}
+							of this app, made in 2023, showcases my development as a front-end
+							software engineer with almost 3 years of commercial experience. It
+							is a Single Page Application made with React, React Router, and
+							MUI library.
+						</Typography>
+						<Typography
+							variant="subtitle1"
+							color="grey"
+							component="p"
+							sx={{ textAlign: 'justify', mb: 1 }}
+						>
+							It took me a while before realizing that web development is the
+							field that I am passionate about and a career path that I want to
+							follow. For almost ten preceeding years before 2020, I was working
+							as an analyst, mainly in public sector. I started learning web
+							development in September 2018, devoting most of my free time to
+							this end. I have been following a variety of sources including
+							online courses from Udemy and Frontend Masters.
+						</Typography>
+						<Typography
+							variant="subtitle1"
+							color="grey"
+							component="p"
+							sx={{ textAlign: 'justify' }}
+						>
+							I do hope that you will enjoy references to the Star Wars
+							universe. Please feel free to contact me through the social media
+							links in the footer.
+						</Typography>
+					</CardContent>
+				</Box>
+			</Box>
+		</>
+	)
 }
 
-export default About;
+export default About

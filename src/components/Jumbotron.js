@@ -1,22 +1,58 @@
-import React from 'react';
-import { Link } from 'react-router-dom'
-import '../styles/galaxy.scss'
+import React from 'react'
+import { Box, Button, Container, Typography } from '@mui/material'
+import { Link as RouterLink } from 'react-router-dom'
+import background1280 from '../images/galaxy_1280.jpg'
+import background640 from '../images/galaxy_640.jpg'
 
-const Jumbotron = () => {
-
-    return (
-        <>
-            <div className="jumbotron jumbotron-fluid galaxy-container">
-                <div className="container">
-                    <div className="galaxy-bg"></div>
-                    <h1 className="display-4">Welcome to the Galactic Archives</h1>
-                    <blockquote className="blockquote"><p className="font-italic">"If an item does not appear in our records, it does not exist!"</p>
-                        <footer className="blockquote-footer text-color2">Jocasta Nu, "Star Wars: Episode II"</footer> </blockquote>
-                    <Link to="/planets" className="btn btn-color1 text-color4">Enter the Archives</Link>
-                </div>
-            </div>
-        </>
-    );
+function Jumbotron() {
+	return (
+		<Box
+			sx={{
+				backgroundImage: {
+					xs: `url(${background640})`,
+					md: `url(${background1280})`,
+				},
+				backgroundPosition: 'center',
+				backgroundSize: 'cover',
+				marginBottom: '1rem',
+			}}
+		>
+			<Box
+				sx={{
+					position: 'relative',
+					backgroundColor: 'rgba(0, 0, 0, 0.5)',
+					padding: '4rem 2rem',
+				}}
+			>
+				<Container>
+					<Typography color="sand.light" variant="h2">
+						Welcome to the Galactic Archives
+					</Typography>
+					<Box sx={{ paddingBottom: '1rem' }}>
+						<Typography
+							color="sand.light"
+							variant="h6"
+							gutterBottom
+							sx={{ fontStyle: 'italic' }}
+						>
+							"If an item does not appear in our records, it does not exist!"
+						</Typography>
+						<Typography color="sand.light" variant="subtitle1">
+							- Jocasta Nu, "Star Wars: Episode II"
+						</Typography>
+					</Box>
+					<Button
+						component={RouterLink}
+						variant="contained"
+						color="sand"
+						to="/planets"
+					>
+						Enter the Archives
+					</Button>
+				</Container>
+			</Box>
+		</Box>
+	)
 }
 
-export default Jumbotron;
+export default Jumbotron
