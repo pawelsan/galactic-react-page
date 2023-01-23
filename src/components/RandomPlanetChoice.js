@@ -1,14 +1,27 @@
 import { useAsyncValue } from 'react-router'
+import { Link as RouterLink } from 'react-router-dom'
+import {
+	Box,
+	Card,
+	CardContent,
+	List,
+	ListItem,
+	Typography,
+} from '@mui/material'
+import PlanetImage from './PlanetImage'
 import { useRandomPlanetChoice } from '../hooks/useRandomPlanetChoice'
-import { Card, CardContent, Typography, List, ListItem } from '@mui/material'
 
 function RandomPlanetChoice() {
 	const planets = useAsyncValue()
 	const randomPlanetChoice = useRandomPlanetChoice(planets)
 	return (
-		<List>
+		<List sx={{ display: 'flex' }}>
 			{randomPlanetChoice.map((planet, index) => (
-				<ListItem key={index}>
+				<ListItem
+					component={RouterLink}
+					to={'planets/' + planet.name.replace(' ', '-')}
+					key={index}
+				>
 					<Card sx={{ minWidth: 275 }}>
 						<CardContent>
 							<Typography
@@ -16,9 +29,13 @@ function RandomPlanetChoice() {
 								color="text.secondary"
 								gutterBottom
 							>
-								Planet of the Day
+								{`#${index + 1} Planet of the Day`}
 							</Typography>
-							<Typography variant="h5" component="h5">
+							<Box sx={{ height: '180px', overflow: 'hidden' }}>
+								<PlanetImage terrain={planet.terrain} />
+							</Box>
+
+							<Typography variant="h5" component="h5" sx={{ mt: 2 }}>
 								{planet.name}
 							</Typography>
 						</CardContent>

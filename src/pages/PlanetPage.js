@@ -56,7 +56,7 @@ function PlanetPage() {
 			</Box>
 			<Grid container spacing={2}>
 				<Grid item xs={12} lg={6}>
-					<PlanetImage planet={planet} />
+					<PlanetImage terrain={planet.terrain} />
 				</Grid>
 				<Grid item xs={12} lg={6}>
 					<PlanetDataTable planet={planet} />

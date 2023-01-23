@@ -2,8 +2,8 @@ import { Box, Tooltip } from '@mui/material'
 import { getTerrainName } from '../helpers/terrainName'
 import ImageNotSupportedIcon from '@mui/icons-material/ImageNotSupported'
 
-function PlanetImage({ planet }) {
-	const terrain = planet.terrain && getTerrainName(planet.terrain)
+function PlanetImage({ terrain }) {
+	const imgName = terrain && getTerrainName(terrain)
 
 	return (
 		<Box
@@ -12,7 +12,7 @@ function PlanetImage({ planet }) {
 				justifyContent: 'center',
 			}}
 		>
-			{!planet.terrain ? (
+			{!terrain ? (
 				<Tooltip title="Image not available">
 					<ImageNotSupportedIcon fontSize="large" />
 				</Tooltip>
@@ -20,7 +20,7 @@ function PlanetImage({ planet }) {
 				<Box
 					component="img"
 					sx={{ width: '100%', maxWidth: '600px' }}
-					src={require(`../images/${terrain}.jpg`)}
+					src={require(`../images/${imgName}.jpg`)}
 					alt="planet surface"
 				/>
 			)}

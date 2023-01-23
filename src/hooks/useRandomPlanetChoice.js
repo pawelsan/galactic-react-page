@@ -7,7 +7,7 @@ export function useRandomPlanetChoice(planets) {
 
 	useEffect(() => {
 		if (pickedIndicesSet.size === 0) {
-			setPickedIndicesSet(getRandomNumbers(6, planets.length - 1))
+			setPickedIndicesSet(getRandomNumbers(3, planets.length - 1))
 		}
 		const tempArray = []
 		for (const index of pickedIndicesSet) {
