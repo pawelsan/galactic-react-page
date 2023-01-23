@@ -20,8 +20,6 @@ function About() {
 					src={image}
 					alt="my face"
 				/>
-
-				{/* <Box component="img" src={image} alt="my face" sx={{ width: 200 }} /> */}
 				<Box>
 					<CardContent>
 						<Typography component="div" variant="h5">
